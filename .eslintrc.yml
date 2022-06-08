@@ -1,0 +1,16 @@
+root: true
+parser: '@typescript-eslint/parser'
+plugins:
+  - '@typescript-eslint'
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - next
+rules:
+  react/jsx-uses-react: off
+  react/react-in-jsx-scope: off
+settings:
+  react:
+    version: detect
