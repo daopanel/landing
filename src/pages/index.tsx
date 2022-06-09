@@ -146,7 +146,6 @@ const Container = styled.div`
       #100817
     );
     background-size: 400% 400%;
-    /* background-position: 40% 40%; */
     display: block;
     content: '';
     height: 100vh;
@@ -301,6 +300,8 @@ const FooterSocialContainer = styled.div`
   justify-content: space-between;
   max-width: 1400px;
   width: 100%;
+  padding: 0px 50px;
+
 
   @media (max-width: 450px) {
     padding: 0px 25px;

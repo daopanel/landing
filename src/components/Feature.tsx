@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react'
+import { prependOnceListener } from 'process';
 
 interface FeatureProps {
   title: string;
@@ -15,18 +16,22 @@ export default function Feature(props: FeatureProps) {
       setIsOpen((isOpen) => !isOpen)
     }
   return (
-    <Container onClick ={handleClick}>
+    <Container isOpen={isOpen} onClick ={handleClick}>
       <FlexRow>
         <Title primaryColor={primaryColor}>{title}</Title>
         {isOpen && <Icon>-</Icon> }
         {isOpen || <Icon>+</Icon>}
       </FlexRow>
-      {isOpen && <Content>{content}</Content> }
+      <Content isOpen={isOpen}>{content}</Content>
     </Container>
   );
 }
 interface styleProps {
   primaryColor: string;
+}
+
+interface booleanProps {
+  isOpen: boolean;
 }
 
 const Title = styled.h3<styleProps>`
@@ -44,12 +49,13 @@ const FlexRow = styled.div`
   width: 100%;
 `
 
-const Content = styled.p`
+const Content = styled.p<booleanProps>`
   transition: opacity 300ms ease-in;
   font-weight: 400;
   line-height: 1.3;
   color: #dad0e6;
   padding-right: 25px;
+  display: ${(props) => props.isOpen ? 'auto' : 'none'};
 `;
 
 const Icon = styled.div`
@@ -57,7 +63,7 @@ const Icon = styled.div`
   color: #47404b;
 `
 
-const Container = styled.div`
+const Container = styled.div<booleanProps>`
   background-color: #100817;
   border-top: 4px solid #47404b;
   border-bottom: 4px solid #47404b;
