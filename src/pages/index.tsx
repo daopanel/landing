@@ -11,9 +11,7 @@ const primaryColor = 'rgb(115, 73, 229)';
 export default function Home() {
   return (
     <Container>
-      <Section>
         <Header>
-          <HeaderSocialContainer>
             <Ul>
               <a
                 target="_blank"
@@ -40,19 +38,15 @@ export default function Home() {
                 <Mirror />
               </a>
             </Ul>
-          </HeaderSocialContainer>
-          <LaunchAppButton>App Coming Soon</LaunchAppButton>
+          <HeaderButton>App Coming Soon</HeaderButton>
         </Header>
-      </Section>
       <HeroSection>
-        <HeroContainer>
           <Headline>
             Governance infrastructure for any DAO and every delegate
           </Headline>
           <SubHeadline>
           Open-source governance tools are a public good. The first piece is Hello, an encrypted and decentralized web3 chat built on XMTP protocol (beta).
           </SubHeadline>
-          <TryHelloSection>
             <ButtonContainer>
               <LeftButton>
                 <LeftButtonLink
@@ -68,16 +62,13 @@ export default function Home() {
               </RightButton>
             </ButtonContainer>
             <HelloMessageContainer>
-            The Daopanel dashboard includes much more than Hello, described below and also in more detail on <MirrorText >Mirror</MirrorText>
+            The Daopanel dashboard includes much more than Hello, described below and also in more detail on 
+            <ColorSiteLink> Mirror</ColorSiteLink>
             </HelloMessageContainer>
-          </TryHelloSection>
-        </HeroContainer>
       </HeroSection>
-      <FeaturesSection>
         <FeatureSection>
           <FeatureContainer primaryColor={primaryColor} />
         </FeatureSection>
-      </FeaturesSection>
       <Footer>
         <FooterSocialContainer>
           <Copyright>&copy; 2022 daopanel, inc</Copyright>
@@ -177,9 +168,8 @@ const Container = styled.div`
   }
 `;
 
-const MirrorText = styled.a`
+const ColorSiteLink = styled.a`
   color: ${primaryColor};
-  display: inline;
   cursor: pointer;
 `
 
@@ -189,6 +179,7 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
+  max-width: 1400px;
 
   @media (max-width: 600px) {
     justify-content: center;
@@ -198,7 +189,7 @@ const Header = styled.header`
   }
 `;
 
-const LaunchAppButton = styled.button`
+const HeaderButton = styled.button`
   /* background: #635f67; */
   background: #100817;
   border: none;
@@ -216,30 +207,12 @@ const LaunchAppButton = styled.button`
   }
 `;
 
-const Section = styled.section`
-  width: 100%;
-  max-width: 1400px;
-`;
-const FeaturesSection = styled.section`
-  width: 100%;
-  max-width: 1400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 const HeroSection = styled.section`
-  max-width: 1400px;
+  max-width: 750px;
   display: flex;
   align-items: center;
-  justify-content: center;
-`;
-
-const HeroContainer = styled.div`
-  display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
-  max-width: 750px;
 `;
 
 const Headline = styled.h1`
@@ -306,9 +279,6 @@ const HelloMessageContainer = styled.span`
 
 const FeatureSection = styled.section`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   max-width: 1000px;
 `;
 
@@ -330,16 +300,7 @@ const FooterSocialContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   max-width: 1400px;
-  width: calc(100% - 150px);
-
-  @media (max-width: 450px) {
-    padding: 0px 25px;
-  }
-`;
-const HeaderSocialContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%;
 
   @media (max-width: 450px) {
     padding: 0px 25px;
@@ -362,6 +323,11 @@ const Mirror = styled.div`
 const Ul = styled.ul`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 450px) {
+    padding: 0px 25px;
+  }
 
   > * {
     margin: 15px;
@@ -371,11 +337,6 @@ const Ul = styled.ul`
   > * > * > * {
     fill: ${primaryColor};
   }
-`;
-
-const TryHelloSection = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 const RightButton = styled.button`
@@ -417,7 +378,6 @@ const LeftButton = styled.button`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
   padding: 45px 0px;
 `;
 

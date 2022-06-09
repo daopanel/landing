@@ -1,7 +1,5 @@
 import Feature from './Feature';
 import styled from 'styled-components';
-import { useState } from 'react'
-
 
 interface FeatureContainerProps {
   primaryColor: string;
@@ -9,7 +7,6 @@ interface FeatureContainerProps {
 
 export default function FeatureContainer(props: FeatureContainerProps) {
   const { primaryColor } = props;
-  const [isActive, setIsActive] = useState(false)
 
 
   return (

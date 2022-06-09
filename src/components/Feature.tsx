@@ -61,8 +61,10 @@ const Container = styled.div`
   background-color: #100817;
   border-top: 4px solid #47404b;
   border-bottom: 4px solid #47404b;
+  border: 4px solid #47404b;
   transition: border 300ms, background-color 300ms;
   flex: 1;
+  border-radius: 6px;
   padding: 25px;
   margin-bottom: 25px;
   cursor: pointer;
@@ -70,6 +72,7 @@ const Container = styled.div`
   &:hover {
     border-top: 4px solid #5a4d66;
     border-bottom: 4px solid #5a4d66;
+    border: 4px solid #5a4d66;
     background-color: #302041;
   }
 
