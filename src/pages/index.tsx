@@ -50,9 +50,7 @@ export default function Home() {
             Governance infrastructure for any DAO and every delegate
           </Headline>
           <SubHeadline>
-            Open source tools for governance are a public good. The first piece
-            is encrypted and decentralized web3 chat called Hello, built on XMTP
-            protocol (in beta).
+          Open-source governance tools are a public good. The first piece is Hello, an encrypted and decentralized web3 chat built on XMTP protocol (beta).
           </SubHeadline>
           <TryHelloSection>
             <ButtonContainer>
@@ -69,6 +67,9 @@ export default function Home() {
                 </RightButtonLink>
               </RightButton>
             </ButtonContainer>
+            <HelloMessageContainer>
+            The Daopanel dashboard includes much more than Hello, described below and also in more detail on <MirrorText >Mirror</MirrorText>
+            </HelloMessageContainer>
           </TryHelloSection>
         </HeroContainer>
       </HeroSection>
@@ -176,6 +177,12 @@ const Container = styled.div`
   }
 `;
 
+const MirrorText = styled.a`
+  color: ${primaryColor};
+  display: inline;
+  cursor: pointer;
+`
+
 const Header = styled.header`
   width: 100%;
   display: flex;
@@ -221,15 +228,15 @@ const FeaturesSection = styled.section`
   align-items: center;
 `;
 const HeroSection = styled.section`
-  width: 100%;
   max-width: 1400px;
   display: flex;
+  align-items: center;
   justify-content: center;
 `;
 
 const HeroContainer = styled.div`
-  justify-content: center;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
   max-width: 750px;
@@ -274,6 +281,26 @@ const SubHeadline = styled.span`
   }
   @media (max-width: 400px) {
     margin-bottom: 0px;
+  }
+`;
+const HelloMessageContainer = styled.span`
+  color: rgb(255, 255, 255, 0.75);
+  font-size: 30px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.25;
+  width: 100%;
+  padding-bottom: 25px;
+
+  @media (max-width: 950px) {
+    max-width: 700px;
+  }
+  @media (max-width: 625px) {
+    font-size: 20px;
+  }
+  @media (max-width: 475px) {
+    font-size: 18px;
   }
 `;
 
@@ -347,7 +374,8 @@ const Ul = styled.ul`
 `;
 
 const TryHelloSection = styled.div`
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const RightButton = styled.button`
@@ -379,7 +407,7 @@ const LeftButton = styled.button`
   font-size: 1rem;
   flex-grow: 1;
   //width hard coded based on the content of the button with the most text
-  width: 186px;
+  max-width: 186px;
 
   @media (max-width: 400px) {
     width: 160px;
@@ -390,9 +418,7 @@ const LeftButton = styled.button`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  justify-self: center;
-  margin-bottom: 75px;
-  margin-top: -50px;
+  padding: 45px 0px;
 `;
 
 const LeftButtonLink = styled.a`
