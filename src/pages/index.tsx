@@ -24,7 +24,7 @@ export default function Home() {
               <a
                 target="_blank"
                 rel="noreferrer"
-                href="https://discord.com/channels/906663102123233311/907110664923914260">
+                href="https://discord.gg/5N3wpzNjTT">
                 <Discord />
               </a>
               <a
