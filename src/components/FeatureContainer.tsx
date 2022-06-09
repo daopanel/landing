@@ -1,5 +1,7 @@
 import Feature from './Feature';
 import styled from 'styled-components';
+import { useState } from 'react'
+
 
 interface FeatureContainerProps {
   primaryColor: string;
@@ -7,10 +9,11 @@ interface FeatureContainerProps {
 
 export default function FeatureContainer(props: FeatureContainerProps) {
   const { primaryColor } = props;
+  const [isActive, setIsActive] = useState(false)
+
 
   return (
     <Container>
-      <div></div>
       <Feature
         primaryColor={primaryColor}
         title="Delegate Profiles"
@@ -41,4 +44,5 @@ const Container = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   max-width: 1000px;
+  padding-top: 30px;
 `;
