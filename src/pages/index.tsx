@@ -63,7 +63,7 @@ export default function Home() {
             </ButtonContainer>
             <HelloMessageContainer>
             The Daopanel dashboard includes much more than Hello, described below and also in more detail on 
-            <ColorSiteLink> Mirror</ColorSiteLink>
+            <ColorSiteLink target="_blank" href="https://mirror.xyz/0xdaopanel.eth">  Mirror</ColorSiteLink>
             </HelloMessageContainer>
       </HeroSection>
         <FeatureSection>
@@ -170,6 +170,7 @@ const Container = styled.div`
 const ColorSiteLink = styled.a`
   color: ${primaryColor};
   cursor: pointer;
+  text-decoration: none;
 `
 
 const Header = styled.header`
