@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { useState } from 'react'
-import { prependOnceListener } from 'process';
+import { useState } from 'react';
 
 interface FeatureProps {
   title: string;
@@ -10,15 +9,15 @@ interface FeatureProps {
 
 export default function Feature(props: FeatureProps) {
   const { title, content, primaryColor } = props;
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-    const handleClick = () => {
-      setIsOpen((isOpen) => !isOpen)
-    }
+  const handleClick = () => {
+    setIsOpen((isOpen) => !isOpen);
+  };
   return (
-    <Container isOpen={isOpen} onClick ={handleClick}>
+    <Container isOpen={isOpen} onClick={handleClick}>
       <FlexRow>
-        <Title primaryColor={primaryColor}>{title}</Title>
+        <Title primaryColor={'#fafafa'}>{title}</Title>
         {isOpen && <Icon>-</Icon>}
         {isOpen || <Icon>+</Icon>}
       </FlexRow>
@@ -46,7 +45,7 @@ const FlexRow = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-`
+`;
 
 const Content = styled.p<booleanProps>`
   transition: opacity 300ms ease-in;
@@ -54,14 +53,14 @@ const Content = styled.p<booleanProps>`
   line-height: 1.3;
   color: #dad0e6;
   padding-right: 25px;
-  display: ${(props) => props.isOpen ? 'auto' : 'none'};
+  display: ${(props) => (props.isOpen ? 'auto' : 'none')};
   padding-top: 25px;
 `;
 
 const Icon = styled.div`
   font-size: 1.5rem;
   color: #47404b;
-`
+`;
 
 const Container = styled.div<booleanProps>`
   background-color: #100817;

@@ -11,64 +11,70 @@ const primaryColor = 'rgb(115, 73, 229)';
 export default function Home() {
   return (
     <Container>
-        <Header>
-            <Ul>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://github.com/daopanel">
-                <Github />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://discord.gg/5N3wpzNjTT">
-                <Discord />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://twitter.com/daopanel">
-                <Twitter />
-              </a>
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://mirror.xyz/0xdaopanel.eth">
-                <Mirror />
-              </a>
-            </Ul>
-          <HeaderButton>App Coming Soon</HeaderButton>
-        </Header>
+      <Header>
+        <Ul>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/daopanel">
+            <Github />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://discord.gg/5N3wpzNjTT">
+            <Discord />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://twitter.com/daopanel">
+            <Twitter />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://mirror.xyz/0xdaopanel.eth">
+            <Mirror />
+          </a>
+        </Ul>
+        <HeaderButton>App Coming Soon</HeaderButton>
+      </Header>
       <HeroSection>
-          <Headline>
-            Governance infrastructure for any DAO and every delegate
-          </Headline>
-          <SubHeadline>
-          Open-source governance tools are a public good. The first piece is Hello, an encrypted and decentralized web3 chat built on XMTP protocol (beta).
-          </SubHeadline>
-            <ButtonContainer>
-              <LeftButton>
-                <LeftButtonLink
-                  target="_blank"
-                  href="https://www.daopanel.chat/">
-                  Try Hello
-                </LeftButtonLink>
-              </LeftButton>
-              <RightButton>
-                <RightButtonLink target="_blank" href="https://xmtp.com">
-                  Learn about XMTP
-                </RightButtonLink>
-              </RightButton>
-            </ButtonContainer>
-            <HelloMessageContainer>
-            The Daopanel dashboard includes much more than Hello, described below and also in more detail on 
-            <ColorSiteLink> Mirror</ColorSiteLink>
-            </HelloMessageContainer>
+        <Headline>
+          Governance infrastructure for any DAO and every delegate
+        </Headline>
+        <SubHeadline>
+          Open-source governance tools are a public good. The first piece is
+          Hello, an encrypted and decentralized web3 chat built on XMTP protocol
+          (beta).
+        </SubHeadline>
+        <ButtonContainer>
+          <LeftButton>
+            <LeftButtonLink target="_blank" href="https://www.daopanel.chat/">
+              Try Hello
+            </LeftButtonLink>
+          </LeftButton>
+          <RightButton>
+            <RightButtonLink target="_blank" href="https://xmtp.com">
+              Learn about XMTP
+            </RightButtonLink>
+          </RightButton>
+        </ButtonContainer>
+        <HelloMessageContainer>
+          The Daopanel dashboard includes much more than Hello, described below
+          and also in more detail on
+          <ColorSiteLink
+            target="_blank"
+            href="https://mirror.xyz/0xdaopanel.eth">
+            {' '}
+            Mirror
+          </ColorSiteLink>
+        </HelloMessageContainer>
       </HeroSection>
-        <FeatureSection>
-          <FeatureContainer primaryColor={primaryColor} />
-        </FeatureSection>
+      <FeatureSection>
+        <FeatureContainer primaryColor={primaryColor} />
+      </FeatureSection>
       <Footer>
         <FooterSocialContainer>
           <Copyright>&copy; 2022 daopanel, inc</Copyright>
@@ -170,7 +176,7 @@ const Container = styled.div`
 const ColorSiteLink = styled.a`
   color: ${primaryColor};
   cursor: pointer;
-`
+`;
 
 const Header = styled.header`
   width: 100%;
@@ -217,7 +223,7 @@ const HeroSection = styled.section`
 `;
 
 const Headline = styled.h1`
-  color: white;
+  color: #fafafa;
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 35px;

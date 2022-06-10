@@ -8,7 +8,6 @@ interface FeatureContainerProps {
 export default function FeatureContainer(props: FeatureContainerProps) {
   const { primaryColor } = props;
 
-
   return (
     <Container>
       <Feature
@@ -17,7 +16,7 @@ export default function FeatureContainer(props: FeatureContainerProps) {
         content="Reputation matters. Public profiles for DAO delegates display relevant data including voting history, background & convictions, DAO memberships, and NFTs owned. Profiles are equipped with XMTP messaging and EPNS polling features that keep members informed and delegates accountable. DAO members will have the most clear picture of who they should delegate to on Daopanel."></Feature>
       <Feature
         primaryColor={primaryColor}
-        title="Proposal Lifecycle Improvements"
+        title="Proposal Lifecycles"
         content="The quality and velocity of proposals determines a DAO’s ability to react to new circumstances.  There is a clear need for proposals to have different tracks and vote thresholds for different effects. Daopanel is adaptive to any governance framework or delegate voting flows, additionally improving the process with voter guides and token-weighted drafting and discussion."></Feature>
       <Feature
         primaryColor={primaryColor}
