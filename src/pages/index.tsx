@@ -122,17 +122,17 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   color: white;
-  padding: 35px 50px 0px 50px;
+  padding-top: 35px;
   font-family: montserrat;
   overflow-x: hidden;
   scroll-behavior: smooth;
 
   @media (max-width: 700px) {
-    padding: 50px 50px 0px 50px;
+    padding: 50px 0px 0px 0px;
   }
 
   @media (max-width: 450px) {
-    padding: 25px 25px 0px 25px;
+    padding: 25px 0px 0px 0px;
   }
 
   &:after {
@@ -179,6 +179,7 @@ const Header = styled.header`
   align-items: center;
   margin-bottom: 100px;
   max-width: 1400px;
+  padding: 0px 25px;
 
   @media (max-width: 600px) {
     justify-content: center;
@@ -207,11 +208,12 @@ const HeaderButton = styled.button`
 `;
 
 const HeroSection = styled.section`
-  max-width: 750px;
+  max-width: 775px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 0px 25px;
 `;
 
 const Headline = styled.h1`
@@ -279,29 +281,25 @@ const HelloMessageContainer = styled.span`
 const FeatureSection = styled.section`
   width: 100%;
   max-width: 1000px;
+  padding: 0px 25px;
 `;
 
 const Footer = styled.footer`
   min-height: 150px;
   margin-top: 100px;
-  width: calc(100% + 150px);
   background: #100817;
   display: flex;
   justify-content: center;
-
-  @media (max-width: 450px) {
-    width: calc(100%+ 50px);
-  }
+  width: 100%;
 `;
 
 const FooterSocialContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   max-width: 1400px;
   width: 100%;
+  justify-content: space-between;
   padding: 0px 50px;
-
 
   @media (max-width: 450px) {
     padding: 0px 25px;
@@ -331,7 +329,7 @@ const Ul = styled.ul`
   }
 
   > * {
-    margin: 15px;
+    margin: 10px;
     cursor: pointer;
   }
 
@@ -350,10 +348,10 @@ const RightButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   //Width hard coded based on the content of the button with the most text
-  width: 186px;
+  min-width: 186px;
 
   @media (max-width: 400px) {
-    width: 160px;
+    min-width: 160px;
     font-size: 0.8rem;
   }
 `;
@@ -369,10 +367,10 @@ const LeftButton = styled.button`
   font-size: 1rem;
   flex-grow: 1;
   //width hard coded based on the content of the button with the most text
-  max-width: 186px;
+  min-width: 186px;
 
   @media (max-width: 400px) {
-    width: 160px;
+    min-width: 160px;
     font-size: 0.8rem;
   }
 `;
