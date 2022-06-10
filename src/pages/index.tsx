@@ -63,11 +63,10 @@ export default function Home() {
         </ButtonContainer>
         <HelloMessageContainer>
           The Daopanel dashboard includes much more than Hello, described below
-          and also in more detail on
+          and also in more detail on{' '}
           <ColorSiteLink
             target="_blank"
             href="https://mirror.xyz/0xdaopanel.eth">
-            {' '}
             Mirror
           </ColorSiteLink>
         </HelloMessageContainer>
