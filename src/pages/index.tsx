@@ -11,9 +11,7 @@ const primaryColor = 'rgb(115, 73, 229)';
 export default function Home() {
   return (
     <Container>
-      <Section>
         <Header>
-          <HeaderSocialContainer>
             <Ul>
               <a
                 target="_blank"
@@ -40,21 +38,15 @@ export default function Home() {
                 <Mirror />
               </a>
             </Ul>
-          </HeaderSocialContainer>
-          <LaunchAppButton>App Coming Soon</LaunchAppButton>
+          <HeaderButton>App Coming Soon</HeaderButton>
         </Header>
-      </Section>
       <HeroSection>
-        <HeroContainer>
           <Headline>
             Governance infrastructure for any DAO and every delegate
           </Headline>
           <SubHeadline>
-            Open source tools for governance are a public good. The first piece
-            is encrypted and decentralized web3 chat called Hello, built on XMTP
-            protocol (in beta).
+          Open-source governance tools are a public good. The first piece is Hello, an encrypted and decentralized web3 chat built on XMTP protocol (beta).
           </SubHeadline>
-          <TryHelloSection>
             <ButtonContainer>
               <LeftButton>
                 <LeftButtonLink
@@ -69,14 +61,14 @@ export default function Home() {
                 </RightButtonLink>
               </RightButton>
             </ButtonContainer>
-          </TryHelloSection>
-        </HeroContainer>
+            <HelloMessageContainer>
+            The Daopanel dashboard includes much more than Hello, described below and also in more detail on 
+            <ColorSiteLink> Mirror</ColorSiteLink>
+            </HelloMessageContainer>
       </HeroSection>
-      <FeaturesSection>
         <FeatureSection>
           <FeatureContainer primaryColor={primaryColor} />
         </FeatureSection>
-      </FeaturesSection>
       <Footer>
         <FooterSocialContainer>
           <Copyright>&copy; 2022 daopanel, inc</Copyright>
@@ -130,17 +122,17 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   color: white;
-  padding: 35px 50px 0px 50px;
+  padding-top: 35px;
   font-family: montserrat;
   overflow-x: hidden;
   scroll-behavior: smooth;
 
   @media (max-width: 700px) {
-    padding: 50px 50px 0px 50px;
+    padding: 50px 0px 0px 0px;
   }
 
   @media (max-width: 450px) {
-    padding: 25px 25px 0px 25px;
+    padding: 25px 0px 0px 0px;
   }
 
   &:after {
@@ -154,7 +146,6 @@ const Container = styled.div`
       #100817
     );
     background-size: 400% 400%;
-    /* background-position: 40% 40%; */
     display: block;
     content: '';
     height: 100vh;
@@ -176,12 +167,19 @@ const Container = styled.div`
   }
 `;
 
+const ColorSiteLink = styled.a`
+  color: ${primaryColor};
+  cursor: pointer;
+`
+
 const Header = styled.header`
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
+  max-width: 1400px;
+  padding: 0px 25px;
 
   @media (max-width: 600px) {
     justify-content: center;
@@ -191,7 +189,7 @@ const Header = styled.header`
   }
 `;
 
-const LaunchAppButton = styled.button`
+const HeaderButton = styled.button`
   /* background: #635f67; */
   background: #100817;
   border: none;
@@ -209,30 +207,13 @@ const LaunchAppButton = styled.button`
   }
 `;
 
-const Section = styled.section`
-  width: 100%;
-  max-width: 1400px;
-`;
-const FeaturesSection = styled.section`
-  width: 100%;
-  max-width: 1400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 const HeroSection = styled.section`
-  width: 100%;
-  max-width: 1400px;
+  max-width: 775px;
   display: flex;
-  justify-content: center;
-`;
-
-const HeroContainer = styled.div`
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  max-width: 750px;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0px 25px;
 `;
 
 const Headline = styled.h1`
@@ -276,43 +257,49 @@ const SubHeadline = styled.span`
     margin-bottom: 0px;
   }
 `;
+const HelloMessageContainer = styled.span`
+  color: rgb(255, 255, 255, 0.75);
+  font-size: 30px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.25;
+  width: 100%;
+  padding-bottom: 25px;
+
+  @media (max-width: 950px) {
+    max-width: 700px;
+  }
+  @media (max-width: 625px) {
+    font-size: 20px;
+  }
+  @media (max-width: 475px) {
+    font-size: 18px;
+  }
+`;
 
 const FeatureSection = styled.section`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   max-width: 1000px;
+  padding: 0px 25px;
 `;
 
 const Footer = styled.footer`
   min-height: 150px;
   margin-top: 100px;
-  width: calc(100% + 150px);
   background: #100817;
   display: flex;
   justify-content: center;
-
-  @media (max-width: 450px) {
-    width: calc(100%+ 50px);
-  }
+  width: 100%;
 `;
 
 const FooterSocialContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   max-width: 1400px;
-  width: calc(100% - 150px);
-
-  @media (max-width: 450px) {
-    padding: 0px 25px;
-  }
-`;
-const HeaderSocialContainer = styled.div`
-  display: flex;
-  align-items: center;
+  width: 100%;
   justify-content: space-between;
+  padding: 0px 50px;
 
   @media (max-width: 450px) {
     padding: 0px 25px;
@@ -335,19 +322,20 @@ const Mirror = styled.div`
 const Ul = styled.ul`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 450px) {
+    padding: 0px 25px;
+  }
 
   > * {
-    margin: 15px;
+    margin: 10px;
     cursor: pointer;
   }
 
   > * > * > * {
     fill: ${primaryColor};
   }
-`;
-
-const TryHelloSection = styled.div`
-  margin-top: 100px;
 `;
 
 const RightButton = styled.button`
@@ -360,10 +348,10 @@ const RightButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   //Width hard coded based on the content of the button with the most text
-  width: 186px;
+  min-width: 186px;
 
   @media (max-width: 400px) {
-    width: 160px;
+    min-width: 160px;
     font-size: 0.8rem;
   }
 `;
@@ -379,20 +367,17 @@ const LeftButton = styled.button`
   font-size: 1rem;
   flex-grow: 1;
   //width hard coded based on the content of the button with the most text
-  width: 186px;
+  min-width: 186px;
 
   @media (max-width: 400px) {
-    width: 160px;
+    min-width: 160px;
     font-size: 0.8rem;
   }
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
-  justify-self: center;
-  margin-bottom: 75px;
-  margin-top: -50px;
+  padding: 45px 0px;
 `;
 
 const LeftButtonLink = styled.a`
