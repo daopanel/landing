@@ -19,7 +19,7 @@ export default function Feature(props: FeatureProps) {
     <Container isOpen={isOpen} onClick ={handleClick}>
       <FlexRow>
         <Title primaryColor={primaryColor}>{title}</Title>
-        {isOpen && <Icon>-</Icon> }
+        {isOpen && <Icon>-</Icon>}
         {isOpen || <Icon>+</Icon>}
       </FlexRow>
       <Content isOpen={isOpen}>{content}</Content>
@@ -35,7 +35,6 @@ interface booleanProps {
 }
 
 const Title = styled.h3<styleProps>`
-  margin-bottom: 30px;
   margin-top: 0px;
   font-size: 32px;
   font-weight: bold;
@@ -56,6 +55,7 @@ const Content = styled.p<booleanProps>`
   color: #dad0e6;
   padding-right: 25px;
   display: ${(props) => props.isOpen ? 'auto' : 'none'};
+  padding-top: 25px;
 `;
 
 const Icon = styled.div`
