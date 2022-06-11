@@ -21,7 +21,7 @@ export default function Feature(props: FeatureProps) {
         {isOpen && <Icon>-</Icon>}
         {isOpen || <Icon>+</Icon>}
       </FlexRow>
-      <Content isOpen={isOpen}>{content}</Content>
+      <Content aria-expanded={!isOpen} isOpen={isOpen}>{content}</Content>
     </Container>
   );
 }
@@ -53,8 +53,10 @@ const Content = styled.p<booleanProps>`
   line-height: 1.3;
   color: #dad0e6;
   padding-right: 25px;
-  display: ${(props) => (props.isOpen ? 'auto' : 'none')};
   padding-top: 25px;
+  overflow: hidden;
+  max-height: ${(props) => props.isOpen ? "1000px" : "0px"};
+  transition: ${(props) => props.isOpen ? 'max-height 1s ease-in-out' : 'max-height 300ms cubic-bezier(0, 1, 0, 1)'};
 `;
 
 const Icon = styled.div`
@@ -64,8 +66,6 @@ const Icon = styled.div`
 
 const Container = styled.div<booleanProps>`
   background-color: #100817;
-  border-top: 4px solid #47404b;
-  border-bottom: 4px solid #47404b;
   border: 4px solid #47404b;
   transition: border 300ms, background-color 300ms;
   flex: 1;
