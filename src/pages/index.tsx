@@ -5,6 +5,7 @@ import Github from 'components/Github';
 import Twitter from 'components/Twitter';
 import Discord from 'components/Discord';
 import FeatureContainer from 'components/FeatureContainer';
+import Link from 'next/link';
 
 const primaryColor = 'rgb(115, 73, 229)';
 
@@ -50,16 +51,12 @@ export default function Home() {
           (beta).
         </SubHeadline>
         <ButtonContainer>
-          <LeftButton>
-            <LeftButtonLink target="_blank" href="https://www.daopanel.chat/">
-              Try Hello
-            </LeftButtonLink>
-          </LeftButton>
-          <RightButton>
-            <RightButtonLink target="_blank" href="https://xmtp.com">
-              Learn about XMTP
-            </RightButtonLink>
-          </RightButton>
+          <Link passHref href="https://www.daopanel.chat/">
+            <LeftButton target="_blank">Try Hello</LeftButton>
+          </Link>
+          <Link passHref href="https://xmtp.com">
+            <RightButton target="_blank">Learn about XMTP</RightButton>
+          </Link>
         </ButtonContainer>
         <HelloMessageContainer>
           The Daopanel dashboard includes much more than Hello, described below
@@ -343,7 +340,7 @@ const Ul = styled.ul`
   }
 `;
 
-const RightButton = styled.button`
+const RightButton = styled.a`
   padding: 15px 20px;
   border-radius: 8px;
   background-color: #100817;
@@ -352,8 +349,10 @@ const RightButton = styled.button`
   font-weight: 400;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
   //Width hard coded based on the content of the button with the most text
   min-width: 186px;
+  text-align: center;
 
   @media (max-width: 400px) {
     min-width: 160px;
@@ -361,7 +360,7 @@ const RightButton = styled.button`
   }
 `;
 
-const LeftButton = styled.button`
+const LeftButton = styled.a`
   margin-right: 15px;
   padding: 15px 20px;
   border-radius: 8px;
@@ -371,6 +370,8 @@ const LeftButton = styled.button`
   cursor: pointer;
   font-size: 1rem;
   flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
   //width hard coded based on the content of the button with the most text
   min-width: 186px;
 
@@ -383,14 +384,4 @@ const LeftButton = styled.button`
 const ButtonContainer = styled.div`
   display: flex;
   padding: 45px 0px;
-`;
-
-const LeftButtonLink = styled.a`
-  text-decoration: none;
-  color: white;
-`;
-
-const RightButtonLink = styled.a`
-  text-decoration: none;
-  color: ${primaryColor};
 `;
