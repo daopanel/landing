@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import background from '../../public/assets/images/Artboard.png';
 import mirrorPurple from '../../public/assets/images/MirrorPurple.png';
-import Github from 'components/Github';
-import Twitter from 'components/Twitter';
-import Discord from 'components/Discord';
 import FeatureContainer from 'components/FeatureContainer';
 import Link from 'next/link';
+import SocialIcons from 'components/SocialIcons';
 
 const primaryColor = 'rgb(115, 73, 229)';
 
@@ -13,32 +11,7 @@ export default function Home() {
   return (
     <Container>
       <Header>
-        <Ul>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/daopanel">
-            <Github />
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://discord.gg/5N3wpzNjTT">
-            <Discord />
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://twitter.com/daopanel">
-            <Twitter />
-          </a>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://mirror.xyz/0xdaopanel.eth">
-            <Mirror />
-          </a>
-        </Ul>
+        <SocialIcons primaryColor={primaryColor} />
         <HeaderButton>App Coming Soon</HeaderButton>
       </Header>
       <HeroSection>
@@ -72,32 +45,7 @@ export default function Home() {
       <Footer>
         <FooterSocialContainer>
           <Copyright>&copy; 2022 daopanel, inc</Copyright>
-          <Ul>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://github.com/daopanel">
-              <Github />
-            </a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://discord.gg/5N3wpzNjTT">
-              <Discord />
-            </a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://twitter.com/daopanel">
-              <Twitter />
-            </a>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://mirror.xyz/0xdaopanel.eth">
-              <Mirror />
-            </a>
-          </Ul>
+          <SocialIcons primaryColor={primaryColor} />
         </FooterSocialContainer>
       </Footer>
     </Container>
