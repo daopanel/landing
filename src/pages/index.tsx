@@ -61,11 +61,9 @@ export default function Home() {
         <HelloMessageContainer>
           The Daopanel dashboard includes much more than Hello, described below
           and also in more detail on{' '}
-          <ColorSiteLink
-            target="_blank"
-            href="https://mirror.xyz/0xdaopanel.eth">
-            Mirror
-          </ColorSiteLink>
+          <Link passHref href="https://mirror.xyz/0xdaopanel.eth">
+            <ColorSiteLink target="_blank">Mirror</ColorSiteLink>
+          </Link>
         </HelloMessageContainer>
       </HeroSection>
       <FeatureSection>
