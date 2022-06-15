@@ -50,7 +50,7 @@ const Ul = styled.ul<Props>`
 
 const SocialLink = styled.a`
   margin: 10px;
-  cursor: pointer
+  cursor: pointer;
 `;
 
 const Mirror = styled.div`
