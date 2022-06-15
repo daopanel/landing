@@ -4,11 +4,10 @@ import { useState } from 'react';
 interface FeatureProps {
   title: string;
   content: string;
-  primaryColor: string;
 }
 
 export default function Feature(props: FeatureProps) {
-  const { title, content, primaryColor } = props;
+  const { title, content } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -17,28 +16,26 @@ export default function Feature(props: FeatureProps) {
   return (
     <Container isOpen={isOpen} onClick={handleClick}>
       <FlexRow>
-        <Title primaryColor={'#fafafa'}>{title}</Title>
+        <Title isOpen={isOpen}>{title}</Title>
         {isOpen && <Icon>-</Icon>}
         {isOpen || <Icon>+</Icon>}
       </FlexRow>
-      <Content isOpen={isOpen}>{content}</Content>
+      <Content aria-expanded={!isOpen} isOpen={isOpen}>
+        {content}
+      </Content>
     </Container>
   );
 }
-interface styleProps {
-  primaryColor: string;
-}
 
-interface booleanProps {
+interface isOpenProps {
   isOpen: boolean;
 }
 
-const Title = styled.h3<styleProps>`
-  margin-top: 0px;
+const Title = styled.h3<isOpenProps>`
   font-size: 32px;
   font-weight: bold;
-  color: ${(props) => props.primaryColor};
   transition: margin-top 300ms, margin-bottom 300ms, color 300ms;
+  margin-bottom: ${(props) => props.isOpen ? '25px' : '0px'};
 `;
 
 const FlexRow = styled.div`
@@ -47,14 +44,20 @@ const FlexRow = styled.div`
   width: 100%;
 `;
 
-const Content = styled.p<booleanProps>`
+const Content = styled.p<isOpenProps>`
   transition: opacity 300ms ease-in;
   font-weight: 400;
   line-height: 1.3;
   color: #dad0e6;
   padding-right: 25px;
-  display: ${(props) => (props.isOpen ? 'auto' : 'none')};
-  padding-top: 25px;
+  overflow: hidden;
+  padding-top: ${(props) => (props.isOpen ? '0rem' : '1.5rem')};
+  padding-top: 0rem;
+  max-height: ${(props) => (props.isOpen ? '1000px' : '0px')};
+  transition: ${(props) =>
+    props.isOpen
+      ? 'max-height 1s ease-in-out'
+      : 'max-height 300ms cubic-bezier(0, 1, 0, 1)'};
 `;
 
 const Icon = styled.div`
@@ -62,10 +65,8 @@ const Icon = styled.div`
   color: #47404b;
 `;
 
-const Container = styled.div<booleanProps>`
+const Container = styled.div<isOpenProps>`
   background-color: #100817;
-  border-top: 4px solid #47404b;
-  border-bottom: 4px solid #47404b;
   border: 4px solid #47404b;
   transition: border 300ms, background-color 300ms;
   flex: 1;
@@ -73,6 +74,8 @@ const Container = styled.div<booleanProps>`
   padding: 25px;
   margin-bottom: 25px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     border-top: 4px solid #5a4d66;
