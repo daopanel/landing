@@ -258,34 +258,6 @@ const Copyright = styled.div`
   color: #dad0e6;
 `;
 
-const Mirror = styled.div`
-  background-image: url(${mirrorPurple.src});
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 25px;
-  width: 25px;
-`;
-
-const Ul = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 450px) {
-    padding: 0px 25px;
-  }
-
-  > * {
-    margin: 10px;
-    cursor: pointer;
-  }
-
-  > * > * > * {
-    fill: ${primaryColor};
-  }
-`;
-
 const RightButton = styled.a`
   padding: 15px 20px;
   border-radius: 8px;
