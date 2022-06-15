@@ -13,20 +13,14 @@ interface Fonts {
 }
 interface Colors {
   darkPurple: string;
-  deepPurple: string;
-  darkPurpleHover: string;
-  darkPurpleBorder: string;
-  purple: string;
-  purpleDisabled: string;
-  lightPurple: string;
   white: string;
-  dimmedPurple: string;
-  dimmedHover: string;
-  purpleHighlight: string;
-  newMessageColor: string;
-  error: string;
-  success: string;
-  warning: string;
+  primaryColor: string;
+  opaqueWhite: string;
+}
+
+interface FontWeights {
+  medium: number;
+  large: number;
 }
 export interface Theme {
   colors: Colors;

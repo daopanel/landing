@@ -19,27 +19,21 @@ export const device = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const theme: DefaultTheme | any = {
   colors: {
-    darkPurple: '#100817',
-    deepPurple: '#271D47',
-    darkPurpleHover: '#231A3A',
-    darkPurpleBorder: '#191027',
-    generalOutlineDark: '#1C1026',
-    purple: '#9867CE',
-    purpleDisabled: '#7040A5',
-    lightPurple: '#DAD0E6',
+    opaqueWhite: 'rgb(255, 255, 255, 0.75)',
     white: '#FFFFFF',
-    dimmedPurple: '#75668C',
-    dimmedHover: '#9486AA',
-    purpleHighlight: '#AF66FF',
-    newMessageColor: '#50456F',
-    error: '#F77272',
-    success: '#69C978',
-    warning: '#E8BB47',
+    primaryColor: 'rgb(115, 73, 229)',
+    darkPurple: '#100817',
   },
+
+  borderRadius: {
+    medium: '8px',
+  },
+
   fontFamily: {
     Inter: FontFamilyEnum.Inter,
     Montserrat: FontFamilyEnum.Montserrat,
   },
+
   fontSizes: {
     XXS: '10px',
     XS: '12px',

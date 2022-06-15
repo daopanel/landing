@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
-interface Props {
-  primaryColor: string
-}
-
-export default function Twitter(props: Props) {
-  const {primaryColor} = props
+export default function Twitter() {
   return (
     <Container
       xmlns="http://www.w3.org/2000/svg"
-      fill={primaryColor}
       viewBox="0 0 30 30"
       width="30px"
       height="30px">
@@ -20,4 +14,5 @@ export default function Twitter(props: Props) {
 }
 
 const Container = styled.svg`
+  fill: ${({ theme }) => theme.colors.primaryColor};
 `;

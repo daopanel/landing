@@ -1,32 +1,27 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import mirrorPurple from '../../public/assets/images/MirrorPurple.png';
-import Github from 'components/Github';
+import GithubSvg from 'components/GithubSvg';
 import Twitter from 'components/Twitter';
 import Discord from 'components/Discord';
 
-interface Props {
-  primaryColor: string;
-}
-
-export default function SocialIcons(props: Props) {
-  const { primaryColor } = props;
+export default function SocialIcons() {
 
   return (
-    <Ul primaryColor={primaryColor}>
+    <Ul>
       <Link passHref href="https://github.com/daopanel">
         <SocialLink target="_blank" rel="noreferrer">
-          <Github primaryColor={primaryColor} />
+          <GithubSvg/>
         </SocialLink>
       </Link>
       <Link passHref href="https://discord.gg/5N3wpzNjTT">
         <SocialLink target="_blank" rel="noreferrer">
-          <Discord primaryColor={primaryColor} />
+          <Discord/>
         </SocialLink>
       </Link>
       <Link passHref href="https://twitter.com/daopanel">
         <SocialLink target="_blank" rel="noreferrer">
-          <Twitter primaryColor={primaryColor} />
+          <Twitter/>
         </SocialLink>
       </Link>
       <Link passHref href="https://mirror.xyz/0xdaopanel.eth">
@@ -38,7 +33,7 @@ export default function SocialIcons(props: Props) {
   );
 }
 
-const Ul = styled.ul<Props>`
+const Ul = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;

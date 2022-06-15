@@ -66,7 +66,7 @@ const Icon = styled.div`
 `;
 
 const Container = styled.div<isOpenProps>`
-  background-color: #100817;
+  background-color: ${({ theme }) => theme.colors.darkPurple};
   border: 4px solid #47404b;
   transition: border 300ms, background-color 300ms;
   flex: 1;
@@ -76,6 +76,7 @@ const Container = styled.div<isOpenProps>`
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  color: ${({ theme }) => theme.colors.white};
 
   &:hover {
     border-top: 4px solid #5a4d66;

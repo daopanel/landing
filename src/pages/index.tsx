@@ -1,54 +1,51 @@
 import styled from 'styled-components';
 import background from '../../public/assets/images/Artboard.png';
-import mirrorPurple from '../../public/assets/images/MirrorPurple.png';
 import FeatureContainer from 'components/FeatureContainer';
 import Link from 'next/link';
 import SocialIcons from 'components/SocialIcons';
 
-const primaryColor = 'rgb(115, 73, 229)';
-
 export default function Home() {
   return (
-    <Container>
-      <Header>
-        <SocialIcons primaryColor={primaryColor} />
-        <HeaderButton>App Coming Soon</HeaderButton>
-      </Header>
-      <HeroSection>
-        <Headline>
-          Governance infrastructure for any DAO and every delegate
-        </Headline>
-        <SubHeadline>
-          Open-source governance tools are a public good. The first piece is
-          Hello, an encrypted and decentralized web3 chat built on XMTP protocol
-          (beta).
-        </SubHeadline>
-        <ButtonContainer>
-          <Link passHref href="https://www.daopanel.chat/">
-            <LeftButton target="_blank">Try Hello</LeftButton>
-          </Link>
-          <Link passHref href="https://xmtp.com">
-            <RightButton target="_blank">Learn about XMTP</RightButton>
-          </Link>
-        </ButtonContainer>
-        <HelloMessageContainer>
-          The Daopanel dashboard includes much more than Hello, described below
-          and also in more detail on{' '}
-          <Link passHref href="https://mirror.xyz/0xdaopanel.eth">
-            <ColorSiteLink target="_blank">Mirror</ColorSiteLink>
-          </Link>
-        </HelloMessageContainer>
-      </HeroSection>
-      <FeatureSection>
-        <FeatureContainer primaryColor={primaryColor} />
-      </FeatureSection>
-      <Footer>
-        <FooterSocialContainer>
-          <Copyright>&copy; 2022 daopanel, inc</Copyright>
-          <SocialIcons primaryColor={primaryColor} />
-        </FooterSocialContainer>
-      </Footer>
-    </Container>
+      <Container>
+        <Header>
+          <SocialIcons />
+          <HeaderButton>App Coming Soon</HeaderButton>
+        </Header>
+        <HeroSection>
+          <Headline>
+            Governance infrastructure for any DAO and every delegate
+          </Headline>
+          <SubHeadline>
+            Open-source governance tools are a public good. The first piece is
+            Hello, an encrypted and decentralized web3 chat built on XMTP
+            protocol (beta).
+          </SubHeadline>
+          <ButtonContainer>
+            <Link passHref href="https://www.daopanel.chat/">
+              <LeftButton target="_blank">Try Hello</LeftButton>
+            </Link>
+            <Link passHref href="https://xmtp.com">
+              <RightButton target="_blank">Learn about XMTP</RightButton>
+            </Link>
+          </ButtonContainer>
+          <HelloMessageContainer>
+            The Daopanel dashboard includes much more than Hello, described
+            below and also in more detail on{' '}
+            <Link passHref href="https://mirror.xyz/0xdaopanel.eth">
+              <ColorSiteLink target="_blank">Mirror</ColorSiteLink>
+            </Link>
+          </HelloMessageContainer>
+        </HeroSection>
+        <FeatureSection>
+          <FeatureContainer/>
+        </FeatureSection>
+        <Footer>
+          <FooterSocialContainer>
+            <Copyright>&copy; 2022 daopanel, inc</Copyright>
+            <SocialIcons/>
+          </FooterSocialContainer>
+        </Footer>
+      </Container>
   );
 }
 
@@ -69,7 +66,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  color: white;
   padding-top: 35px;
   font-family: montserrat;
   overflow-x: hidden;
@@ -116,7 +112,7 @@ const Container = styled.div`
 `;
 
 const ColorSiteLink = styled.a`
-  color: ${primaryColor};
+  color: ${({ theme }) => theme.colors.primaryColor};
   cursor: pointer;
 `;
 
@@ -138,15 +134,12 @@ const Header = styled.header`
 `;
 
 const HeaderButton = styled.button`
-  /* background: #635f67; */
-  background: #100817;
+  background-color: ${({ theme }) => theme.colors.darkPurple};
   border: none;
   border-radius: 8px;
-  color: #1a181c;
   color: #817f7f;
   padding: 16px;
   min-width: 100px;
-  border: 2px solid #333234;
   border: 2px solid #242526;
   font-size: 1rem;
 
@@ -165,7 +158,7 @@ const HeroSection = styled.section`
 `;
 
 const Headline = styled.h1`
-  color: #fafafa;
+  color: ${({ theme }) => theme.colors.white};
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 35px;
@@ -178,7 +171,7 @@ const Headline = styled.h1`
 `;
 
 const SubHeadline = styled.span`
-  color: rgb(255, 255, 255, 0.75);
+  color: ${({theme}) => theme.colors.opaqueWhite};
   font-size: 30px;
   text-align: center;
   font-size: 24px;
@@ -206,7 +199,7 @@ const SubHeadline = styled.span`
   }
 `;
 const HelloMessageContainer = styled.span`
-  color: rgb(255, 255, 255, 0.75);
+  color: ${({ theme }) => theme.colors.opaqueWhite};
   font-size: 30px;
   text-align: center;
   font-size: 24px;
@@ -235,7 +228,7 @@ const FeatureSection = styled.section`
 const Footer = styled.footer`
   min-height: 150px;
   margin-top: 100px;
-  background: #100817;
+  background-color: ${({ theme }) => theme.colors.darkPurple};
   display: flex;
   justify-content: center;
   width: 100%;
@@ -261,9 +254,9 @@ const Copyright = styled.div`
 const RightButton = styled.a`
   padding: 15px 20px;
   border-radius: 8px;
-  background-color: #100817;
-  border: 2px solid ${primaryColor};
-  color: ${primaryColor};
+  background-color: ${({ theme }) => theme.colors.darkPurple};
+  border: 2px solid ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.primaryColor};
   font-weight: 400;
   cursor: pointer;
   font-size: 1rem;
@@ -282,9 +275,10 @@ const LeftButton = styled.a`
   margin-right: 15px;
   padding: 15px 20px;
   border-radius: 8px;
-  background-color: ${primaryColor};
-  border: 2px solid ${primaryColor};
-  color: white;
+  background-color: ${(props) => props.theme.colors.primaryColor};
+  border: 2px solid ${({ theme }) => theme.colors.primaryColor};
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: 400;
   cursor: pointer;
   font-size: 1rem;
   flex-grow: 1;

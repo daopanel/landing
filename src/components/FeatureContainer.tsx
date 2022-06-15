@@ -1,11 +1,7 @@
 import Feature from './Feature';
 import styled from 'styled-components';
 
-interface FeatureContainerProps {
-  primaryColor: string;
-}
-
-export default function FeatureContainer(props: FeatureContainerProps) {
+export default function FeatureContainer() {
 
   return (
     <Container>
