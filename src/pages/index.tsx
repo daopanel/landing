@@ -15,17 +15,14 @@ export default function Home() {
         <HeaderButton>App Coming Soon</HeaderButton>
       </Header>
       <HeroSection>
-        <Headline>
-          Governance infrastructure for any DAO and every delegate
-        </Headline>
+        <Headline>message everywhere using your web3 identity </Headline>
         <SubHeadline>
-          Open-source governance tools are a public good. The first piece is
-          Hello, an encrypted and decentralized web3 chat built on XMTP protocol
-          (beta).
+          your web3 wallet is now even more powerful, use it for any and all
+          types of messaging—encrypted and decentralized!try it out now!
         </SubHeadline>
         <ButtonContainer>
           <Link passHref href="https://www.daopanel.chat/">
-            <LeftButton target="_blank">Try Hello</LeftButton>
+            <LeftButton target="_blank">Panel</LeftButton>
           </Link>
           <Link passHref href="https://xmtp.com">
             <RightButton target="_blank">Learn about XMTP</RightButton>
