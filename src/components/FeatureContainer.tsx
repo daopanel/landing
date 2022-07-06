@@ -14,7 +14,7 @@ export default function FeatureContainer(props: FeatureContainerProps) {
         listItems={[
           'Token-gated group chats',
           'Profiles rich with on-chain data, including ENS, NFTs, Lens, and DAO membership',
-          'Filter messages base d on sender, content, and message type',
+          'Filter messages based on sender, content, and message type',
           'Built-in anti-spam features',
         ]}></Feature>
       <Feature
