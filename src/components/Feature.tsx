@@ -4,7 +4,7 @@ import { useState, useLayoutEffect } from 'react';
 interface FeatureProps {
   title: string;
   listTitle: string;
-  listItems?: string[];
+  listItems: string[];
 }
 
 export default function Feature(props: FeatureProps) {
@@ -31,8 +31,7 @@ export default function Feature(props: FeatureProps) {
       <Content isOpen={isOpen}>
         <ListTitle>{listTitle}</ListTitle>
         <ContentList>
-          {listItems &&
-            listItems.map((item: string, index: number) => (
+          {listItems.map((item: string, index: number) => (
               <ListItem key={index}>{item}</ListItem>
             ))}
         </ContentList>
