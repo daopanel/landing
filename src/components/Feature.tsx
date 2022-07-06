@@ -46,7 +46,7 @@ const Title = styled.h3<isOpenProps>`
   align-items: center;
 `;
 
-const TitleBold = styled.h3<isOpenProps>`
+const TitleBold = styled.div<isOpenProps>`
   font-size: 2rem;
   font-weight: bold;
   transition: margin-top 300ms, margin-bottom 300ms, color 300ms;

@@ -14,12 +14,12 @@ export default function Home() {
         <HeaderButton>App Coming Soon</HeaderButton>
       </Header>
       <HeroSection>
-        <Headline>message everywhere using your web3 identity</Headline>
+        <Headline>Message Everywhere Using Your Web3 Identity</Headline>
         <SubHeadline>
-          your web3 wallet is now even more powerful, use it for any and all
+          Your web3 wallet is now even more powerful, use it for any and all
           types of messaging—encrypted and decentralized!
         </SubHeadline>
-        <CallToActionStatment>try it out now!</CallToActionStatment>
+        <CallToActionStatment>Try it out now!</CallToActionStatment>
         <ButtonContainer>
           <Link passHref href="https://www.daopanel.chat/">
             <LeftButton target="_blank">Panel</LeftButton>
@@ -35,7 +35,9 @@ export default function Home() {
         </HelloMessageContainer>
       </HeroSection>
       <FeatureSection>
-        <FeatureSectionTitle>Apps we are building on the SDK</FeatureSectionTitle>
+        <FeatureSectionTitle>
+          Apps we are building on the SDK
+        </FeatureSectionTitle>
         <FeatureContainer primaryColor={primaryColor} />
       </FeatureSection>
       <Footer>
@@ -315,4 +317,4 @@ const FeatureSectionTitle = styled.h3`
   font-weight: bold;
   margin-top: 2rem;
   /* text-align: center; */
-`
+`;
