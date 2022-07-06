@@ -4,7 +4,7 @@ import { useState, useLayoutEffect } from 'react';
 interface FeatureProps {
   title: string;
   listTitle: string;
-  listItems?: any;
+  listItems?: string[];
 }
 
 export default function Feature(props: FeatureProps) {
@@ -12,12 +12,12 @@ export default function Feature(props: FeatureProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleClick = () => {
-    setIsOpen((isOpen:any) => !isOpen);
+    setIsOpen((isOpen) => !isOpen);
   };
 
-    useLayoutEffect(() => {
-      setIsOpen(false);
-    }, []);
+  useLayoutEffect(() => {
+    setIsOpen(false);
+  }, []);
 
   return (
     <Container isOpen={isOpen} onClick={handleClick}>
@@ -31,11 +31,10 @@ export default function Feature(props: FeatureProps) {
       <Content isOpen={isOpen}>
         <ListTitle>{listTitle}</ListTitle>
         <ContentList>
-          {listItems.map((item: string, index: number) => (
-            <ListItem key={index}>
-              {item}
-            </ListItem>
-          ))}
+          {listItems &&
+            listItems.map((item: string, index: number) => (
+              <ListItem key={index}>{item}</ListItem>
+            ))}
         </ContentList>
       </Content>
     </Container>
@@ -116,8 +115,7 @@ const ListTitle = styled.h3`
   font-weight: 400;
 `;
 
-const ContentList = styled.ul`
-`;
+const ContentList = styled.ul``;
 
 const ListItem = styled.li`
   margin-bottom: 0.25rem;
