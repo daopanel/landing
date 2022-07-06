@@ -6,24 +6,41 @@ interface FeatureContainerProps {
 }
 
 export default function FeatureContainer(props: FeatureContainerProps) {
-
   return (
     <Container>
       <Feature
-        title="Delegate Profiles"
-        content="Reputation matters. Public profiles for DAO delegates display relevant data including voting history, background & convictions, DAO memberships, and NFTs owned. Profiles are equipped with XMTP messaging and EPNS polling features that keep members informed and delegates accountable. DAO members will have the most clear picture of who they should delegate to on Daopanel."></Feature>
+        title="Panel"
+        listTitle="All your XMTP conversations in one place"
+        listItems={[
+          'Token-gated group chats',
+          'Profiles rich with on-chain data, including ENS, NFTs, Lens, and DAO membership',
+          'Filter messages base d on sender, content, and message type',
+          'Built-in anti-spam features',
+        ]}></Feature>
       <Feature
-        title="Proposal Lifecycles"
-        content="The quality and velocity of proposals determines a DAO’s ability to react to new circumstances.  There is a clear need for proposals to have different tracks and vote thresholds for different effects. Daopanel is adaptive to any governance framework or delegate voting flows, additionally improving the process with voter guides and token-weighted drafting and discussion."></Feature>
+        title="Artist Suite"
+        listTitle=" Broadcast to NFT fans"
+        listItems={[
+          'Blasts: message all of the addresses holding a creator’s NFT',
+          'No middlemen: share content directly to your fans',
+          'Feature-rich creator profiles: What do you want fans to see?',
+        ]}></Feature>
       <Feature
-        title="Member Discussions"
-        content="Core to DAO governance is thoughtful and rational discourse on what concerns the DAO.  Token-gated communications are a necessary start, and Daopanel will continue to innovate delegate comms systems to ensure DAOs have the tools needed to navigate contentious votes in a public, fair, and fruitful manner."></Feature>
+        title="Athens"
+        listTitle=" Delegate & Proposal Dashboard"
+        listItems={[
+          'Designed for web3 discussion and debate',
+          'Token-gated proposal drafting and commenting',
+          'Delegate tracking, profiles, and voter guides',
+        ]}></Feature>
       <Feature
-        title="Priority Updates"
-        content="In a world with hundreds of DAOs and thousands well on the way (each with marginal benefit for members), current platforms have a notification infestation.  Daopanel's customizable feed filters the noise by votes, events, and comments from specific DAOs or delegates you care most about."></Feature>
-      <Feature
-        title="Off-chain Voting"
-        content="On-chain actions are expensive and use up scarce blockspace, leading DAOs to conduct many of their operations off-chain. Daopanel supports current Snapshot-like solutions with plans to incorporate zero-knowledge voting, and both Layer 2 and non-EVM chains."></Feature>
+        title="Panel Pro"
+        listTitle="Embedded XMTP chats for any website with web3 users"
+        listItems={[
+          'Easy to use components for widespread use of the XMTP chatbox, hosted anywhere',
+          'Web3 sites can add drop-in wallet messaging, including customer support & feedback',
+          'Web2 sites can reach and support new users through their wallet addresses, enabling new business models',
+        ]}></Feature>
     </Container>
   );
 }

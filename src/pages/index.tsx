@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import background from '../../public/assets/images/Artboard.png';
-import mirrorPurple from '../../public/assets/images/MirrorPurple.png';
 import FeatureContainer from 'components/FeatureContainer';
 import Link from 'next/link';
 import SocialIcons from 'components/SocialIcons';
@@ -15,31 +14,30 @@ export default function Home() {
         <HeaderButton>App Coming Soon</HeaderButton>
       </Header>
       <HeroSection>
-        <Headline>
-          Governance infrastructure for any DAO and every delegate
-        </Headline>
+        <Headline>Message Everywhere Using Your Web3 Identity</Headline>
         <SubHeadline>
-          Open-source governance tools are a public good. The first piece is
-          Hello, an encrypted and decentralized web3 chat built on XMTP protocol
-          (beta).
+          Your web3 wallet is now even more powerful, use it for any and all
+          types of messaging—encrypted and decentralized!
         </SubHeadline>
+        <CallToActionStatment>Try it out now!</CallToActionStatment>
         <ButtonContainer>
           <Link passHref href="https://www.daopanel.chat/">
-            <LeftButton target="_blank">Try Hello</LeftButton>
+            <LeftButton target="_blank">Panel</LeftButton>
           </Link>
           <Link passHref href="https://xmtp.com">
             <RightButton target="_blank">Learn about XMTP</RightButton>
           </Link>
         </ButtonContainer>
         <HelloMessageContainer>
-          The Daopanel dashboard includes much more than Hello, described below
-          and also in more detail on{' '}
-          <Link passHref href="https://mirror.xyz/0xdaopanel.eth">
-            <ColorSiteLink target="_blank">Mirror</ColorSiteLink>
-          </Link>
+          Panel is creating the first SDK on top of XMTP, rich in features that
+          unlock new experiences in encrypted messaging and identity, making it
+          easy to build apps that prefer the use of web3 wallets
         </HelloMessageContainer>
       </HeroSection>
       <FeatureSection>
+        <FeatureSectionTitle>
+          Apps we are building on the SDK
+        </FeatureSectionTitle>
         <FeatureContainer primaryColor={primaryColor} />
       </FeatureSection>
       <Footer>
@@ -258,34 +256,6 @@ const Copyright = styled.div`
   color: #dad0e6;
 `;
 
-const Mirror = styled.div`
-  background-image: url(${mirrorPurple.src});
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 25px;
-  width: 25px;
-`;
-
-const Ul = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  @media (max-width: 450px) {
-    padding: 0px 25px;
-  }
-
-  > * {
-    margin: 10px;
-    cursor: pointer;
-  }
-
-  > * > * > * {
-    fill: ${primaryColor};
-  }
-`;
-
 const RightButton = styled.a`
   padding: 15px 20px;
   border-radius: 8px;
@@ -330,4 +300,21 @@ const LeftButton = styled.a`
 const ButtonContainer = styled.div`
   display: flex;
   padding: 45px 0px;
+`;
+
+const CallToActionStatment = styled.span`
+  color: rgb(255, 255, 255, 0.75);
+  font-size: 30px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 1.25;
+  margin-top: 2rem;
+`;
+
+const FeatureSectionTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  /* text-align: center; */
 `;

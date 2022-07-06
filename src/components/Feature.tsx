@@ -3,11 +3,12 @@ import { useState } from 'react';
 
 interface FeatureProps {
   title: string;
-  content: string;
+  listTitle: string;
+  listItems?: any;
 }
 
 export default function Feature(props: FeatureProps) {
-  const { title, content } = props;
+  const { title, listTitle, listItems } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -16,12 +17,21 @@ export default function Feature(props: FeatureProps) {
   return (
     <Container isOpen={isOpen} onClick={handleClick}>
       <FlexRow>
-        <Title isOpen={isOpen}>{title}</Title>
+        <Title isOpen={isOpen}>
+          <TitleBold isOpen={isOpen}>{title}</TitleBold>
+        </Title>
         {isOpen && <Icon>-</Icon>}
         {isOpen || <Icon>+</Icon>}
       </FlexRow>
-      <Content aria-expanded={!isOpen} isOpen={isOpen}>
-        {content}
+      <Content isOpen={isOpen}>
+        <ListTitle>{listTitle}</ListTitle>
+        <ContentList>
+          {listItems.map((e: string, index: number) => (
+            <ListItem style={{ listStyleType: 'disc' }} key={index}>
+              {e}
+            </ListItem>
+          ))}
+        </ContentList>
       </Content>
     </Container>
   );
@@ -32,10 +42,15 @@ interface isOpenProps {
 }
 
 const Title = styled.h3<isOpenProps>`
-  font-size: 32px;
+  display: flex;
+  align-items: center;
+`;
+
+const TitleBold = styled.div<isOpenProps>`
+  font-size: 2rem;
   font-weight: bold;
   transition: margin-top 300ms, margin-bottom 300ms, color 300ms;
-  margin-bottom: ${(props) => props.isOpen ? '25px' : '0px'};
+  margin-bottom: ${(props) => (props.isOpen ? '25px' : '0px')};
 `;
 
 const FlexRow = styled.div`
@@ -44,7 +59,7 @@ const FlexRow = styled.div`
   width: 100%;
 `;
 
-const Content = styled.p<isOpenProps>`
+const Content = styled.ul<isOpenProps>`
   transition: opacity 300ms ease-in;
   font-weight: 400;
   line-height: 1.3;
@@ -54,6 +69,7 @@ const Content = styled.p<isOpenProps>`
   padding-top: ${(props) => (props.isOpen ? '0rem' : '1.5rem')};
   padding-top: 0rem;
   max-height: ${(props) => (props.isOpen ? '1000px' : '0px')};
+  list-style-type: disc !important;
   transition: ${(props) =>
     props.isOpen
       ? 'max-height 1s ease-in-out'
@@ -86,5 +102,36 @@ const Container = styled.div<isOpenProps>`
 
   &:hover > ${Content} {
     opacity: 1;
+  }
+`;
+
+const ListTitle = styled.h3`
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+`;
+
+const ContentList = styled.ul`
+  list-style-type: disc !important;
+`;
+
+const ListItem = styled.li`
+  list-style-type: disc !important;
+  margin-bottom: 0.25rem;
+  display: list-item;
+  padding-left: 1.25rem;
+  position: relative;
+  display: flex;
+
+  &:before {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
   }
 `;
