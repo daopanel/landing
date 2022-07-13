@@ -21,7 +21,7 @@ export default function Home() {
         </SubHeadline>
         <CallToActionStatment>Try it out now!</CallToActionStatment>
         <ButtonContainer>
-          <Link passHref href="https://www.daopanel.chat/">
+          <Link passHref href="https://www.relay.cc/">
             <LeftButton target="_blank">Relay</LeftButton>
           </Link>
           <Link passHref href="https://xmtp.com">
