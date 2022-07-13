@@ -22,7 +22,7 @@ export default function Home() {
         <CallToActionStatment>Try it out now!</CallToActionStatment>
         <ButtonContainer>
           <Link passHref href="https://www.daopanel.chat/">
-            <LeftButton target="_blank">Panel</LeftButton>
+            <LeftButton target="_blank">Relay</LeftButton>
           </Link>
           <Link passHref href="https://xmtp.com">
             <RightButton target="_blank">Learn about XMTP</RightButton>
