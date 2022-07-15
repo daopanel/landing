@@ -1,19 +1,24 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
 interface FeatureProps {
   title: string;
   listTitle: string;
-  listItems?: any;
+  listItems: string[];
 }
 
 export default function Feature(props: FeatureProps) {
   const { title, listTitle, listItems } = props;
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleClick = () => {
     setIsOpen((isOpen) => !isOpen);
   };
+
+  useLayoutEffect(() => {
+    setIsOpen(false);
+  }, []);
+
   return (
     <Container isOpen={isOpen} onClick={handleClick}>
       <FlexRow>
@@ -26,11 +31,9 @@ export default function Feature(props: FeatureProps) {
       <Content isOpen={isOpen}>
         <ListTitle>{listTitle}</ListTitle>
         <ContentList>
-          {listItems.map((e: string, index: number) => (
-            <ListItem style={{ listStyleType: 'disc' }} key={index}>
-              {e}
-            </ListItem>
-          ))}
+          {listItems.map((item: string, index: number) => (
+              <ListItem key={index}>{item}</ListItem>
+            ))}
         </ContentList>
       </Content>
     </Container>
@@ -111,12 +114,9 @@ const ListTitle = styled.h3`
   font-weight: 400;
 `;
 
-const ContentList = styled.ul`
-  list-style-type: disc !important;
-`;
+const ContentList = styled.ul``;
 
 const ListItem = styled.li`
-  list-style-type: disc !important;
   margin-bottom: 0.25rem;
   display: list-item;
   padding-left: 1.25rem;
