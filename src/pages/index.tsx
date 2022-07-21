@@ -85,6 +85,7 @@ const Headline = styled.h1`
   line-height: 58px;
   display: flex;
   margin-bottom: 0.5rem;
+
 `;
 
 const HeroSection = styled.section`
@@ -92,6 +93,10 @@ const HeroSection = styled.section`
   display: flex;
   justify-content: center;
   padding: 10rem 6rem;
+
+  @media (max-width: 1288px) {
+    padding: 5rem 6rem;
+  }
 `;
 
 const FlexColumn = styled.div`
