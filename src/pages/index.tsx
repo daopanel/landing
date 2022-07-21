@@ -85,7 +85,6 @@ const Headline = styled.h1`
   line-height: 58px;
   display: flex;
   margin-bottom: 0.5rem;
-
 `;
 
 const HeroSection = styled.section`
