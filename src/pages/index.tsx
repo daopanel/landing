@@ -1,59 +1,234 @@
 import styled from 'styled-components';
-import background from '../../public/assets/images/Artboard.png';
-import FeatureContainer from 'components/FeatureContainer';
+import Image from 'next/image';
+import PanelLogo from '../../public/assets/images/PanelLogo.png';
+import LandingImage from '../../public/assets/images/LandingImage.png';
+import SocialContainer from '../components/SocialContainer';
+import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png';
 import Link from 'next/link';
-import SocialIcons from 'components/SocialIcons';
-
-const primaryColor = 'rgb(115, 73, 229)';
 
 export default function Home() {
   return (
-    <Container>
+    <Page>
       <Header>
-        <SocialIcons primaryColor={primaryColor} />
-        <HeaderButton>App Coming Soon</HeaderButton>
+        <TopLeftFlexRow>
+          <TopLeftLogo>
+            <Image height={27} width={29} src={PanelLogo.src} alt="logo" />
+          </TopLeftLogo>
+          <TopLeftTitle>Relay</TopLeftTitle>
+          <From>from</From>
+          <Panel>Panel</Panel>
+        </TopLeftFlexRow>
+        <TopRightContainer>
+          <PublicBeta>Public Beta</PublicBeta>
+          <Link href="https://relay.cc" passHref>
+            <CallToActionButton
+              style={{ height: '100%', width: '100%' }}
+              target="_blank">
+              Launch App
+            </CallToActionButton>
+          </Link>
+        </TopRightContainer>
       </Header>
       <HeroSection>
-        <Headline>Message Everywhere Using Your Web3 Identity</Headline>
-        <SubHeadline>
-          Your web3 wallet is now even more powerful, use it for any and all
-          types of messaging—encrypted and decentralized!
-        </SubHeadline>
-        <CallToActionStatment>Try it out now!</CallToActionStatment>
-        <ButtonContainer>
-          <Link passHref href="https://www.relay.cc/">
-            <LeftButton target="_blank">Relay</LeftButton>
-          </Link>
-          <Link passHref href="https://xmtp.com">
-            <RightButton target="_blank">Learn about XMTP</RightButton>
-          </Link>
-        </ButtonContainer>
-        <HelloMessageContainer>
-          Panel is creating the first SDK on top of XMTP, rich in features that
-          unlock new experiences in encrypted messaging and identity, making it
-          easy to build apps that prefer the use of web3 wallets
-        </HelloMessageContainer>
+        <FlexColumn>
+          <Headline>Message Everywhere Using Your Web3 Identity</Headline>
+          <SubHeadline>
+            Your Web3 wallet is now even more powerful. Use it for any and all
+            types of messaging —encrypted and decentralized!
+          </SubHeadline>
+        </FlexColumn>
+        <SpacerDiv></SpacerDiv>
+        <ImageContainer>
+          <Image src={LandingImage} height={322} width={539} alt="Chatboxes" />
+        </ImageContainer>
       </HeroSection>
-      <FeatureSection>
-        <FeatureSectionTitle>
-          Apps we are building on the SDK
-        </FeatureSectionTitle>
-        <FeatureContainer primaryColor={primaryColor} />
-      </FeatureSection>
-      <Footer>
-        <FooterSocialContainer>
-          <Copyright>&copy; 2022 daopanel, inc</Copyright>
-          <SocialIcons primaryColor={primaryColor} />
-        </FooterSocialContainer>
-      </Footer>
-    </Container>
+      <BottomRight>
+        <SocialContainer />
+      </BottomRight>
+    </Page>
   );
 }
 
-const Container = styled.div`
+const TopLeftLogo = styled.div`
+  min-height: 27px;
+  min-width: 29px;
+`;
+
+const ImageContainer = styled.div`
+  height: 332px;
+  width: 539px;
+
+  @media (max-width: 1288px) {
+    display: none;
+  }
+`;
+
+const SpacerDiv = styled.div`
+  /* background: orange; */
+  height: 100%;
+  width: 5rem;
+`;
+
+const SubHeadline = styled.p`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18.2339px;
+  line-height: 150%;
+  color: #5b5b5b;
+`;
+
+const Headline = styled.h1`
+  color: #5a46c6;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 58px;
+  display: flex;
+  margin-bottom: 0.5rem;
+`;
+
+const HeroSection = styled.section`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10rem 6rem;
+`;
+
+const FlexColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+`;
+
+const CallToActionButton = styled.a`
+  padding: 0.5rem 0.75rem;
+  background: #5a46c6;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #fbfbfb;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+`;
+
+const TopRightContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ModalHeader = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24.2px;
+  margin-bottom: 5px;
+`;
+
+const ModalParagraph = styled.p`
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 48px;
+  text-align: center;
+  color: #5b5b5b;
+`;
+
+const TopLeftTitle = styled.div`
+  font-size: 20px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+
+  &:after {
+    content: '';
+    height: 19px;
+    width: 1px;
+    display: inline-block;
+    background-color: #d9d9d9;
+    margin: 0rem 0.5rem;
+  }
+`;
+
+const From = styled.span`
+  color: #868686;
+  font-weight: 500;
+  font-size: 0.875rem;
+`;
+
+const Panel = styled.span`
+  color: #868686;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-left: 0.25rem;
+`;
+
+const PublicBeta = styled.div`
+  border-radius: 99rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: #5b5b5b;
+  font-weight: 400;
+  border: 1px solid #fbfbfb;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  @media (max-width: 500px) {
+    display: none;
+  }
+
+  &:before {
+    content: '';
+    display: inline-block;
+    transform: translate(-50%, -50%);
+    margin-right: 8px;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color: #84ffa7;
+  }
+`;
+
+const TopLeftFlexRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const BottomRight = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+`;
+
+const MaxContentWidth = styled.div`
+  max-width: 360px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 48px;
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 54px rgba(159, 159, 159, 0.25);
+  background-color: white;
+`;
+
+const Page = styled.div`
   width: 100vw;
   height: 100vh;
-  background: url(${background.src}) repeat center center fixed;
+  background: url(${OpaqueArtboard.src}) repeat center center fixed;
+  background-color: #f6f5ff;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -66,255 +241,40 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  color: white;
-  padding-top: 35px;
-  font-family: montserrat;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-
-  @media (max-width: 700px) {
-    padding: 50px 0px 0px 0px;
-  }
-
-  @media (max-width: 450px) {
-    padding: 25px 0px 0px 0px;
-  }
-
-  &:after {
-    background-image: linear-gradient(
-      90deg,
-      rgba(16, 8, 23, 94.5%) 0%,
-      rgba(16, 8, 23, 93.5%) 38%,
-      rgba(16, 8, 23, 83.5%) 50%,
-      rgba(16, 8, 23, 93.5%) 72%,
-      rgba(16, 8, 23, 94.5%) 100%,
-      #100817
-    );
-    background-size: 400% 400%;
-    display: block;
-    content: '';
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    animation: slide 8s infinite;
-
-    @keyframes slide {
-      0% {
-        background-position: 0% 0%;
-      }
-      100% {
-        background-position: 100% 100%;
-      }
-    }
-  }
 `;
 
-const ColorSiteLink = styled.a`
-  color: ${primaryColor};
+const ConnectorList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  border-radius: 12px;
+`;
+
+const Connector = styled.li`
+  color: white;
+  list-style-type: none;
   cursor: pointer;
+  width: 100%;
+  min-height: 80px;
+  border-radius: 8px;
+`;
+
+const MaybeHideOnMobileConnector = styled(Connector)<{ shouldHide: boolean }>`
+  @media (pointer: coarse) {
+    display: ${(p) => (p.shouldHide ? 'none' : 'flex')};
+  }
 `;
 
 const Header = styled.header`
   width: 100%;
+  background: white;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 100px;
-  max-width: 1400px;
-  padding: 0px 25px;
-
-  @media (max-width: 600px) {
-    justify-content: center;
-  }
-  @media (max-width: 600px) {
-    margin-bottom: 50px;
-  }
-`;
-
-const HeaderButton = styled.button`
-  /* background: #635f67; */
-  background: #100817;
-  border: none;
-  border-radius: 8px;
-  color: #1a181c;
-  color: #817f7f;
-  padding: 16px;
-  min-width: 100px;
-  border: 2px solid #333234;
-  border: 2px solid #242526;
-  font-size: 1rem;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
-const HeroSection = styled.section`
-  max-width: 775px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 0px 25px;
-`;
-
-const Headline = styled.h1`
-  color: #fafafa;
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 35px;
-  text-align: center;
-  line-height: 1.25;
-
-  @media (max-width: 475px) {
-    font-size: 35px;
-  }
-`;
-
-const SubHeadline = styled.span`
-  color: rgb(255, 255, 255, 0.75);
-  font-size: 30px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 1.25;
-
-  @media (max-width: 950px) {
-    max-width: 700px;
-  }
-  @media (max-width: 525px) {
-    line-height: 1.2;
-    margin-top: -10px;
-    margin-bottom: -50px;
-  }
-  @media (max-width: 625px) {
-    font-size: 20px;
-    margin-bottom: 0px;
-  }
-  @media (max-width: 475px) {
-    font-size: 18px;
-    margin-bottom: 0px;
-  }
-  @media (max-width: 400px) {
-    margin-bottom: 0px;
-  }
-`;
-const HelloMessageContainer = styled.span`
-  color: rgb(255, 255, 255, 0.75);
-  font-size: 30px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 1.25;
-  width: 100%;
-  padding-bottom: 25px;
-
-  @media (max-width: 950px) {
-    max-width: 700px;
-  }
-  @media (max-width: 625px) {
-    font-size: 20px;
-  }
-  @media (max-width: 475px) {
-    font-size: 18px;
-  }
-`;
-
-const FeatureSection = styled.section`
-  width: 100%;
-  max-width: 1000px;
-  padding: 0px 25px;
-`;
-
-const Footer = styled.footer`
-  min-height: 150px;
-  margin-top: 100px;
-  background: #100817;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-
-const FooterSocialContainer = styled.div`
-  display: flex;
-  align-items: center;
-  max-width: 1400px;
-  width: 100%;
-  justify-content: space-between;
-  padding: 0px 50px;
-
-  @media (max-width: 450px) {
-    padding: 0px 25px;
-  }
-`;
-
-const Copyright = styled.div`
-  color: #dad0e6;
-`;
-
-const RightButton = styled.a`
-  padding: 15px 20px;
-  border-radius: 8px;
-  background-color: #100817;
-  border: 2px solid ${primaryColor};
-  color: ${primaryColor};
-  font-weight: 400;
-  cursor: pointer;
-  font-size: 1rem;
-  text-decoration: none;
-  //Width hard coded based on the content of the button with the most text
-  min-width: 186px;
-  text-align: center;
+  padding: 1.1825rem 3rem;
 
   @media (max-width: 400px) {
-    min-width: 160px;
-    font-size: 0.8rem;
+    padding: 1.1825rem 1.5rem;
   }
-`;
-
-const LeftButton = styled.a`
-  margin-right: 15px;
-  padding: 15px 20px;
-  border-radius: 8px;
-  background-color: ${primaryColor};
-  border: 2px solid ${primaryColor};
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  flex-grow: 1;
-  text-align: center;
-  text-decoration: none;
-  //width hard coded based on the content of the button with the most text
-  min-width: 186px;
-
-  @media (max-width: 400px) {
-    min-width: 160px;
-    font-size: 0.8rem;
-  }
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  padding: 45px 0px;
-`;
-
-const CallToActionStatment = styled.span`
-  color: rgb(255, 255, 255, 0.75);
-  font-size: 30px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 200;
-  line-height: 1.25;
-  margin-top: 2rem;
-`;
-
-const FeatureSectionTitle = styled.h3`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 2rem;
-  /* text-align: center; */
 `;
