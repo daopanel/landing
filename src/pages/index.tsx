@@ -5,6 +5,9 @@ import LandingImage from '../../public/assets/images/LandingImage.png';
 import SocialContainer from '../components/SocialContainer';
 import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png';
 import Link from 'next/link';
+import RelayReceiver from '../components/Receiver';
+
+const primaryColor = 'rgb(115, 73, 229)';
 
 export default function Home() {
   return (
@@ -45,6 +48,7 @@ export default function Home() {
       <BottomRight>
         <SocialContainer />
       </BottomRight>
+      <RelayReceiver buttonText='Message'/>
     </Page>
   );
 }
