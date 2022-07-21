@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import Image from 'next/image'
-import PanelLogo from '../../public/assets/images/PanelLogo.png'
+import Image from 'next/image';
+import PanelLogo from '../../public/assets/images/PanelLogo.png';
 import LandingImage from '../../public/assets/images/LandingImage.png';
-import SocialContainer from '../components/SocialContainer'
-import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png'
+import SocialContainer from '../components/SocialContainer';
+import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -12,11 +13,7 @@ export default function Home() {
       <Header>
         <TopLeftFlexRow>
           <TopLeftLogo>
-            <Image
-              height={27}
-              width={29}
-              src={PanelLogo.src}
-              alt="logo" />
+            <Image height={27} width={29} src={PanelLogo.src} alt="logo" />
           </TopLeftLogo>
           <TopLeftTitle>Relay</TopLeftTitle>
           <From>from</From>
@@ -24,7 +21,13 @@ export default function Home() {
         </TopLeftFlexRow>
         <TopRightContainer>
           <PublicBeta>Public Beta</PublicBeta>
-          <CallToActionButton>Launch App</CallToActionButton>
+          <Link href="https://relay.cc" passHref>
+            <CallToActionButton
+              style={{ height: '100%', width: '100%' }}
+              target="_blank">
+              Launch App
+            </CallToActionButton>
+          </Link>
         </TopRightContainer>
       </Header>
       <HeroSection>
@@ -55,6 +58,10 @@ const TopLeftLogo = styled.div`
 const ImageContainer = styled.div`
   height: 332px;
   width: 539px;
+
+  @media (max-width: 1288px) {
+    display: none;
+  }
 `;
 
 const SpacerDiv = styled.div`
@@ -94,7 +101,7 @@ const FlexColumn = styled.div`
   max-width: 500px;
 `;
 
-const CallToActionButton = styled.button`
+const CallToActionButton = styled.a`
   padding: 0.5rem 0.75rem;
   background: #5a46c6;
   color: white;
@@ -108,10 +115,12 @@ const CallToActionButton = styled.button`
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 const TopRightContainer = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const ModalHeader = styled.h1`
@@ -167,12 +176,19 @@ const PublicBeta = styled.div`
   border: 1px solid #fbfbfb;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.1));
   margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  
+  @media (max-width: 500px) {
+    display: none;
+  }
 
   &:before {
     content: '';
     display: inline-block;
     transform: translate(-50%, -50%);
-    margin-right: 4px;
+    margin-right: 8px;
     height: 4px;
     width: 4px;
     border-radius: 50%;
