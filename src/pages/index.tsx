@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import Image from 'next/image';
 import PanelLogo from '../../public/assets/images/PanelLogo.png';
 import LandingImage from '../../public/assets/images/LandingImage.png';
@@ -7,7 +7,6 @@ import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png';
 import Link from 'next/link';
 
 export default function Home() {
-
   return (
     <Page>
       <Header>
@@ -53,7 +52,7 @@ export default function Home() {
 const TopLeftLogo = styled.div`
   min-height: 27px;
   min-width: 29px;
-`
+`;
 
 const ImageContainer = styled.div`
   height: 332px;
@@ -179,7 +178,7 @@ const PublicBeta = styled.div`
   display: flex;
   align-items: center;
   white-space: nowrap;
-  
+
   @media (max-width: 500px) {
     display: none;
   }
@@ -274,9 +273,8 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1.1825rem 3rem;
-  
+
   @media (max-width: 400px) {
     padding: 1.1825rem 1.5rem;
   }
-
 `;

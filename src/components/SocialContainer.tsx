@@ -2,18 +2,13 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Github from './Github';
 import MirrorWhite from '../../public/assets/images/mirror-white.png';
-import WhiteLogo from '../../public/assets/images/whitelogo.png'
+import WhiteLogo from '../../public/assets/images/whitelogo.png';
 
 export default function MobileBetaStatus() {
   return (
     <Wrapper>
       <a href="https://www.daopanel.com/" target="_blank" rel="noreferrer">
-        <Image
-          src={WhiteLogo.src}
-          width="28"
-          height="24"
-          alt="white-logo"
-        />
+        <Image src={WhiteLogo.src} width="28" height="24" alt="white-logo" />
       </a>
       <Spacer />
       <a
