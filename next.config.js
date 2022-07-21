@@ -9,7 +9,15 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+   webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Fixes npm packages that depend on `fs` module
+      // https://github.com/vercel/next.js/issues/7755#issuecomment-937721514
+      config.resolve.fallback.fs = false;
+    }
+    return config;
+  }
 };
 
-// eslint-disable-next-line no-undef
+
 module.exports = nextConfig;

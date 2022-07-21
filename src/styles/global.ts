@@ -84,6 +84,16 @@ export const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
+  font-family: 'Roboto';
+  src: url('/assets/fonts/Roboto.ttf')
+      format('truetype supports variations'),
+    url('/assets/fonts/Roboto.ttf')
+      format('truetype-variations');
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Montserrat-Italic';
   src: url('/assets/fonts/Montserrat-Italic-VariableFont_wght.ttf')
       format('truetype supports variations'),
