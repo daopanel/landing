@@ -5,6 +5,7 @@ import LandingImage from '../../public/assets/images/LandingImage.png';
 import SocialContainer from '../components/SocialContainer';
 import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png';
 import Link from 'next/link';
+import SocialIcons from '../components/SocialIcons';
 import RelayReceiver from '../components/Receiver';
 
 const primaryColor = 'rgb(115, 73, 229)';
@@ -45,11 +46,20 @@ export default function Home() {
           <Image src={LandingImage} height={322} width={539} alt="Chatboxes" />
         </ImageContainer>
       </HeroSection>
-      <BottomRight>
-        <SocialContainer />
-      </BottomRight>
+      <FeatureSection>
+        <FeatureSectionTitle>
+          Apps we are building on the SDK
+        </FeatureSectionTitle>
+        <FeatureContainer primaryColor={primaryColor} />
+      </FeatureSection>
+      <Footer>
+        <FooterSocialContainer>
+          <Copyright>&copy; 2022 daopanel, inc</Copyright>
+          <SocialIcons primaryColor={primaryColor} />
+        </FooterSocialContainer>
+      </Footer>
       <RelayReceiver buttonText='Message'/>
-    </Page>
+    </Container>
   );
 }
 
