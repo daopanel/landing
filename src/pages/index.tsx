@@ -5,10 +5,15 @@ import LandingImage from '../../public/assets/images/LandingImage.png';
 import SocialContainer from '../components/SocialContainer';
 import OpaqueArtboard from '../../public/assets/images/OpaqueArtboard.png';
 import Link from 'next/link';
+import Head from 'next/head'
 
 export default function Home() {
   return (
     <Page>
+      <Head>
+        <title>Relay</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header>
         <TopLeftFlexRow>
           <TopLeftLogo>
