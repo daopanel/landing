@@ -19,7 +19,7 @@ const Receiver = ({ buttonText, buttonStyle, peerAddress }: ContainerProps) => {
   return (
     <div>
       <Button onClick={toggle} text={buttonText} style={buttonStyle}></Button>
-      <ChatBox closeReceiver={toggle} peerAddress={'vdp.eth'} visible={showBox}></ChatBox>
+      <ChatBox closeReceiver={toggle} peerAddress={'panel.eth'} visible={showBox}></ChatBox>
     </div>
   );
 };
