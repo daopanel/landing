@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import Image from 'next/image';
 import Github from './Github';
 import MirrorWhite from '../../public/assets/images/mirror-white.png';
@@ -28,21 +28,21 @@ export default function MobileBetaStatus() {
   );
 }
 
-const receiverButtonStyle = {
-  backgroundImage: `url(${WhiteLogo.src})`,
-  backgroundSize: 'contain',
-  backgroundRepeat: 'no-repeat',
-  position: 'relative',
-  bottom: 'initial',
-  right: 'initial',
-  backgroundColor: '#7349e5',
-  border: 'none',
-  boxShadow: 'none',
-  height: '20px',
-  width: '22px',
-  marginRight: '5px',
-  marginLeft: '0px'
-}
+const receiverButtonStyle = css`
+  background-image: url(${WhiteLogo.src});
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  bottom: initial;
+  right: initial;
+  background-color: #7349e5;
+  border: none;
+  boxShadow: none;
+  height: 20px;
+  width: 22px;
+  margin-right: 5px;
+  margin-left: 0px;
+`
 
 const Spacer = styled.span`
   width: 1px;
