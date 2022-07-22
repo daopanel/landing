@@ -3,13 +3,14 @@ import Image from 'next/image';
 import Github from './Github';
 import MirrorWhite from '../../public/assets/images/mirror-white.png';
 import WhiteLogo from '../../public/assets/images/whitelogo.png';
+import RelayReceiver from '../components/Receiver';
+import { relative } from 'node:path/win32';
+import { url } from 'node:inspector';
 
 export default function MobileBetaStatus() {
   return (
     <Wrapper>
-      <a href="https://www.daopanel.com/" target="_blank" rel="noreferrer">
-        <Image src={WhiteLogo.src} width="28" height="24" alt="white-logo" />
-      </a>
+      <RelayReceiver buttonStyle={receiverButtonStyle} buttonText=''/>
       <Spacer />
       <a
         href="https://www.github.com/daopanel"
@@ -25,6 +26,22 @@ export default function MobileBetaStatus() {
       />
     </Wrapper>
   );
+}
+
+const receiverButtonStyle = {
+  backgroundImage: `url(${WhiteLogo.src})`,
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+  position: 'relative',
+  bottom: 'initial',
+  right: 'initial',
+  backgroundColor: '#7349e5',
+  border: 'none',
+  boxShadow: 'none',
+  height: '20px',
+  width: '22px',
+  marginRight: '5px',
+  marginLeft: '0px'
 }
 
 const Spacer = styled.span`

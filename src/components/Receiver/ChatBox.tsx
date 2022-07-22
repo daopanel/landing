@@ -137,8 +137,8 @@ const ChatContainer = styled.div<ChatButtonProps>`
   font-size: 16px;
   letter-spacing: .1em;
   position: fixed;
-  bottom: 120px;
-  right: 20px;
+  bottom: 0px;
+  right: 50px;
   height: 480px;
   width: 375px;
   border-radius: 7px;
