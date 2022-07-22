@@ -18,9 +18,7 @@ export default function RelayHeader({
   return (
     <Header>
        <TextContainer>
-          
           {text}
-
        </TextContainer>
       
 
@@ -42,11 +40,9 @@ const Header = styled.div`
   color: white;
   font-size: 12px;
   font-weight: 500;
-  text-align: center;
   padding: 10px 24px;
   font-family: Inter;
   height: 62px;
-  align-items: center;
 `;
 
 const TextContainer = styled.div`

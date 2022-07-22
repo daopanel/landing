@@ -89,57 +89,50 @@ const Messages = ({ providedPeerAddress, onXmptReady }: MessagesProps) => {
         <>
           <Centered>
             <StatusCard
-              title="Initialize XMTP Client..."
-              subtitle="To begin messaging, you must first initialize the XMTP client by signing a message."
-              buttonText="Initialize Client"
+              title="Initialize XMTP Client"
+              subtitle="To begin messaging, you must first initialize the XMTP client."
+              buttonText="Initialize"
               isLoading={false}
               isError={false}
               errorText={'Signature request cancelled. Try again...'}
-              loadingText="Awaiting signature..."
+              loadingText="Awaiting signature"
               onClick={xmtp.init}
             />
           </Centered>
-          <AvatarContainer>
-            <Avatar address={peerAddress} />
-          </AvatarContainer>
         </>
       )}
       {xmtp.status === Status.waiting && (
         <>
           <Centered>
             <StatusCard
-              title="Initialize XMTP Client..."
-              subtitle="To begin messaging, you must first initialize the XMTP client by signing a message."
-              buttonText="Initialize Client"
+              title="Initialize XMTP Client"
+              subtitleHeader="Initializing"
+              subtitle="To continue, please sign the wallet prompt."
+              buttonText="Initialize"
               isLoading={true}
               isError={false}
               errorText={'Signature request cancelled. Try again...'}
-              loadingText="Awaiting signature..."
+              loadingText="Awaiting signature"
               onClick={() => null}
             />
           </Centered>
-          <AvatarContainer>
-            <Avatar address={peerAddress} />
-          </AvatarContainer>
         </>
       )}
       { (xmtp.status === Status.denied)  && (
         <>
           <Centered>
             <StatusCard
-              title="Initialize XMTP Client..."
-              subtitle="To begin messaging, you must first initialize the XMTP client by signing a message."
-              buttonText="Initialize Client"
+              title="Initialize XMTP Client"
+              subtitleHeader="Initializing"
+              subtitle="<b>Initializing<b><br/>To continue, please sign the wallet prompt."
+              buttonText="Initialize"
               isLoading={false}
               isError={true}
               errorText={'Signature request cancelled. Try again...'}
-              loadingText="Awaiting signature..."
+              loadingText="Awaiting signature"
               onClick={xmtp.init}
             />
           </Centered>
-          <AvatarContainer>
-            <Avatar address={peerAddress} />
-          </AvatarContainer>
         </>
       )}
       {xmtp.status === Status.loading && (
@@ -215,13 +208,6 @@ const Centered = styled.div`
   bottom: 73px;
 `;
 
-const AvatarContainer = styled.div`
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  left: 25px;
-  bottom: 73px;
-`
 
 // This assumets messages are sorted by date already.
 function getMessageBuckets(messages: Message[]): Array<Message[]> {

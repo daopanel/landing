@@ -16,8 +16,6 @@ import {
 } from '../../xmtp-react/conversations';
 import React from 'react';
 
-// @refresh reset
-
 interface ChatButtonProps {
   visible: boolean;
   as?: string | React.ComponentType<any>;
@@ -117,9 +115,6 @@ const ChatBox = ({ style, visible, as, peerAddress, headerText, closeReceiver}: 
                 />
               </MaybeHideOnConnector>
             </ConnectorList>
-            <AvatarContainer>
-              <Avatar address={peerAddress} />
-            </AvatarContainer>
           </>
         )}
         { !xmtpReady && ( 
@@ -142,8 +137,8 @@ const ChatContainer = styled.div<ChatButtonProps>`
   font-size: 16px;
   letter-spacing: .1em;
   position: fixed;
-  bottom: 100px;
-  right: 30px;
+  bottom: 120px;
+  right: 20px;
   height: 480px;
   width: 375px;
   border-radius: 7px;
@@ -182,12 +177,15 @@ const RelayFooter = styled.div`
 `;
 
 const ConnectorPrompt = styled.div`
-  color: #333333;
+  color: #686868;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 12px;
   line-height: 18px;
+  text-align: center;
+  padding: 0 8px 8px 8px;
+  border-bottom: 1px solid #E4E4E4;
 `;
 
 const ConnectorList = styled.ul`
@@ -200,9 +198,10 @@ const ConnectorList = styled.ul`
   width: 227px;
   height: 263px;
   left: 80px;
-  bottom: 73px;
+  bottom: 92px;
   background: #F7F7F7;
-  border-radius: 8px 8px 8px 0px;
+  border: 1px dashed #A6A6A6;
+  border-radius: 8px;
 `;
 
 const Connector = styled.li`

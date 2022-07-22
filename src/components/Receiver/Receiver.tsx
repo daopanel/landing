@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Interpolation } from 'styled-components';
 import ChatBox from './ChatBox';
-import Button from './Button';
+import LaunchButton from './LaunchButton';
 
 interface ContainerProps {
   buttonText: string;
@@ -17,10 +17,10 @@ const Receiver = ({ buttonText, buttonStyle, peerAddress }: ContainerProps) => {
   };
 
   return (
-    <div>
-      <Button onClick={toggle} text={buttonText} style={buttonStyle}></Button>
+    <>
+      <LaunchButton onClick={toggle} text={buttonText} style={buttonStyle}></LaunchButton>
       <ChatBox closeReceiver={toggle} peerAddress={'panel.eth'} visible={showBox}></ChatBox>
-    </div>
+    </>
   );
 };
 

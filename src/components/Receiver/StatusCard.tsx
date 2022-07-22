@@ -10,6 +10,7 @@ export interface StatusCardProps {
   subtitle: string;
   buttonText: string;
   isLoading: boolean;
+  subtitleHeader?: string;
   loadingText?: string;
   isError: boolean;
   errorText?: string;
@@ -22,6 +23,7 @@ export default function StatusCard({
   buttonText,
   isLoading,
   loadingText,
+  subtitleHeader,
   isError,
   errorText,
   noPeerAvailable = false,
@@ -29,11 +31,6 @@ export default function StatusCard({
 }: StatusCardProps) {
   return (
     <Card>
-      {isLoading && (
-        <Right>
-          <Loader height={20} width={20} />
-        </Right>
-      )}
       {isError && (
         <Right>
           <Image
@@ -45,6 +42,9 @@ export default function StatusCard({
         </Right>
       )}
       <Title>{title}</Title>
+      { subtitleHeader && 
+        <SubtitleHeader>{subtitleHeader}</SubtitleHeader>
+      }
       <Subtitle>{subtitle}</Subtitle>
       {noPeerAvailable && (
         <ReferSubtitle>
@@ -59,9 +59,11 @@ export default function StatusCard({
         </ReferSubtitle>
       )}
 
-      <Button onClick={onClick}>
-        {isLoading ? loadingText : isError ? errorText : buttonText}
-      </Button>
+      { !isLoading && 
+        <Button onClick={onClick}>
+          {isError ? errorText : buttonText}
+        </Button>
+      }
     </Card>
   );
 }
@@ -72,22 +74,37 @@ const Right = styled.div`
 
 const Card = styled.div`
   background: #F7F7F7;
-  border-radius: 8px 8px 8px 0px;
+  border: 1px dashed #A6A6A6;
+  border-radius: 8px;
   width: 227px;
-  position: relative;
+  position: absolute;
   padding: 10px;
-  height: 150px;
+  text-align: center;
+  bottom: 90px;
+`;
+
+const SubtitleHeader = styled.div`
+  font-weight: 800;
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 12px;
+  color: #333333;
+  letter-spacing: -0.01em;
+  margin-top: 16px;
 `;
 
 const Title = styled.h1`
   /* Headline/Headline 3 */
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.01em;
-  color: #333333;
+  color: #686868;
+  text-align: center;
+  padding: 0 8px 8px 8px;
+  border-bottom: 1px solid #E4E4E4;
 `;
 
 const Subtitle = styled.h6`
@@ -128,15 +145,12 @@ const ReferSubtitle = styled.div`
 `;
 
 const Button = styled.button`
-  position: absolute;
-  width: 131px;
-  height: 32px;
-  left: 10px;
-  bottom: 10px;
-
+  margin: 16px 0 8px 0;
+  padding: 8px;
   background: #5A46C6;
+  border: 1px solid rgba(55, 41, 125, 0.5);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  border: none;
   color: white;
 
   font-family: 'Inter';

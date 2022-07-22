@@ -8,7 +8,7 @@ interface ButtonProps {
   style?: Interpolation<React.CSSProperties>;
 }
 
-const Button = ({ text, style, as, onClick }: ButtonProps) => {
+const LaunchButton = ({ text, style, as, onClick }: ButtonProps) => {
   return (
     <>
       <ButtonElem onClick={() => onClick()} as={as} style={style}>
@@ -27,8 +27,8 @@ const ButtonElem = styled.button<ButtonProps>`
   font-size: 16px;
   letter-spacing: .1em;
   position: fixed;
-  bottom: 60px;
-  right: 30px;
+  bottom: 80px;
+  right: 20px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -44,4 +44,4 @@ const ButtonElem = styled.button<ButtonProps>`
   }
 `;
 
-export default Button;
+export default LaunchButton;
