@@ -14,6 +14,7 @@ export interface StatusCardProps {
   loadingText?: string;
   isError: boolean;
   errorText?: string;
+  isFirstMessagePrompt?: boolean;
   noPeerAvailable?: boolean;
   onClick: () => void;
 }
@@ -26,6 +27,7 @@ export default function StatusCard({
   subtitleHeader,
   isError,
   errorText,
+  isFirstMessagePrompt = false, 
   noPeerAvailable = false,
   onClick,
 }: StatusCardProps) {
@@ -59,7 +61,7 @@ export default function StatusCard({
         </ReferSubtitle>
       )}
 
-      { !isLoading && 
+      { !isLoading && !isFirstMessagePrompt && 
         <Button onClick={onClick}>
           {isError ? errorText : buttonText}
         </Button>
@@ -77,10 +79,8 @@ const Card = styled.div`
   border: 1px dashed #A6A6A6;
   border-radius: 8px;
   width: 227px;
-  position: absolute;
   padding: 10px;
   text-align: center;
-  bottom: 90px;
 `;
 
 const SubtitleHeader = styled.div`

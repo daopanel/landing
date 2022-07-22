@@ -124,7 +124,7 @@ const Messages = ({ providedPeerAddress, onXmptReady }: MessagesProps) => {
             <StatusCard
               title="Initialize XMTP Client"
               subtitleHeader="Initializing"
-              subtitle="<b>Initializing<b><br/>To continue, please sign the wallet prompt."
+              subtitle="To continue, please sign the wallet prompt."
               buttonText="Initialize"
               isLoading={false}
               isError={true}
@@ -139,9 +139,8 @@ const Messages = ({ providedPeerAddress, onXmptReady }: MessagesProps) => {
         <LoadingMessages />
       )}
       {xmtp.status === Status.ready && (
-        <>
+        Object.values(messages).length > 0 ? (
           <List>
-            <div ref={divScrollToRef}></div>
             {buckets.map((bucketMessages, index) => {
               if (bucketMessages.length > 0) {
                 return (
@@ -157,7 +156,19 @@ const Messages = ({ providedPeerAddress, onXmptReady }: MessagesProps) => {
               return null;
             })}
           </List>
-        </>
+        ) : (
+          <Centered>
+            <StatusCard
+              title="All Set  🎉"
+              subtitle={`This is the beginning of your conversation with ${providedPeerAddress}`}
+              buttonText="Initialize"
+              isLoading={false}
+              isFirstMessagePrompt={true}
+              isError={false}
+              onClick={() => null}
+            />
+          </Centered>
+        )
       )}
     </Page>
     {xmtp.status === Status.ready && (
@@ -203,9 +214,12 @@ const RelayInputFooter = styled.div`
 `;
 
 const Centered = styled.div`
-  position: absolute;
-  left: 80px;
-  bottom: 73px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
 `;
 
 
