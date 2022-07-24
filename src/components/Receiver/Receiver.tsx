@@ -13,6 +13,7 @@ import { CoinbaseWalletConnector } from 'wagmi/connectors/coinbaseWallet';
 import { InjectedConnector } from 'wagmi/connectors/injected';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
 import { XmtpContextProvider } from 'xmtp-react/context';
+import CSS from 'csstype';
 
 const alchemyKey = 'kmMb00nhQ0SWModX6lJLjXy_pVtiQnjx';
 
@@ -21,7 +22,7 @@ const defaultChain = chain.mainnet;
 
 // Set up connectors
 const wagmi = createClient({
-  autoConnect: true,
+  autoConnect: false,
   connectors({ chainId }) {
     const chain = chains.find((x) => x.id === chainId) ?? defaultChain;
     const rpcUrl = chain.rpcUrls.alchemy
@@ -68,11 +69,20 @@ const Receiver = ({ buttonText, launchButtonStyle, peerAddress, receiverContaine
     setShowBox(!showBox);
   };
 
+  const chatBoxContainerStyle:CSS.Properties = {
+    maxHeight: showBox ? '480px' : '0px', 
+    height: '480px', 
+    position: 'fixed', 
+    bottom: '0px', 
+    right: '150px',
+    transition: 'max-height 0.25s ease-in'
+  }
+
   return (
     <WagmiProvider client={wagmi}>
       <XmtpContextProvider>
         <LaunchButton onClick={toggle} text={buttonText} style={launchButtonStyle}></LaunchButton>
-        <div style={{height: showBox ? '480px' : '0px', position: 'fixed', bottom: '0px', right: '50px'}}>
+        <div style={chatBoxContainerStyle}>
           <ChatBox style={receiverContainerStyle} closeReceiver={toggle} peerAddress={peerAddress} visible={showBox}></ChatBox>
         </div>
      </XmtpContextProvider>

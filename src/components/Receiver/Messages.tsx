@@ -31,11 +31,6 @@ const Messages = ({ providedPeerAddress, onXmptReady }: MessagesProps) => {
 
   const messages = useMessages(peerAddress);
   const sendMessage = useSendMessage();
-  const [showMenu, setShowMenu] = useState<boolean>(false);
-  const divScrollToRef = useRef<HTMLInputElement>(null);
-
-  const openMenu = useCallback(() => setShowMenu(true), [setShowMenu]);
-  const closeMenu = useCallback(() => setShowMenu(false), [setShowMenu]);
 
   const doSendMessage = useCallback(
     async (message: string) => {
@@ -55,14 +50,6 @@ const Messages = ({ providedPeerAddress, onXmptReady }: MessagesProps) => {
   if (xmtp.status === Status.ready) {
     onXmptReady();
   }
-
-  if (isLoading)
-    return (
-      <LoadingEnsName />
-    );
-  console.log('xmtp.status')
-
-  console.log(xmtp.status)
 
   if (typeof peerAddress !== 'string')
     return (
