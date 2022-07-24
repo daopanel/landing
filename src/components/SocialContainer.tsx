@@ -10,7 +10,11 @@ import { url } from 'node:inspector';
 export default function MobileBetaStatus() {
   return (
     <Wrapper>
-      <RelayReceiver buttonStyle={receiverButtonStyle} buttonText=''/>
+      <RelayReceiver 
+        peerAddress='panel.eth' 
+        receiverContainerStyle={receiverStyle} 
+        launchButtonStyle={receiverButtonStyle} buttonText=''
+      />
       <Spacer />
       <a
         href="https://www.github.com/daopanel"
@@ -28,6 +32,10 @@ export default function MobileBetaStatus() {
   );
 }
 
+const receiverStyle = css`
+  right: 160px;
+`;
+
 const receiverButtonStyle = css`
   background-image: url(${WhiteLogo.src});
   background-size: contain;
@@ -42,7 +50,7 @@ const receiverButtonStyle = css`
   width: 22px;
   margin-right: 5px;
   margin-left: 0px;
-`
+`;
 
 const Spacer = styled.span`
   width: 1px;

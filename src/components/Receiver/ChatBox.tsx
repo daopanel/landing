@@ -126,22 +126,17 @@ const ChatBox = ({ style, visible, as, peerAddress, headerText, closeReceiver}: 
 };
 
 const ChatContainer = styled.div<ChatButtonProps>`
-  ${({ style }) => style };
-  max-height: ${({ visible }) => visible ? '480px' : '0px' };
   overflow: scroll;
   background-color: white;
   color: white;
   border: none;
-  transition: max-height 0.25s ease-out;
   padding: 0px;
   font-size: 16px;
   letter-spacing: .1em;
-  position: fixed;
-  bottom: 0px;
-  right: 50px;
-  height: 480px;
+  height: 100%;
   width: 375px;
   border-radius: 7px;
+  ${({ style }) => style };
 `;
 
 const RelayRelativeContainer = styled.div`

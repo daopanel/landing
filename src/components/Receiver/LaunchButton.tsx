@@ -19,7 +19,6 @@ const LaunchButton = ({ text, style, as, onClick }: ButtonProps) => {
 };
 
 const ButtonElem = styled.button<ButtonProps>`
-  ${({ style }) => style };
   background-color: #5A46C6;
   color: white;
   border: none;
@@ -42,6 +41,9 @@ const ButtonElem = styled.button<ButtonProps>`
   &:hover {
     cursor: pointer;
   }
+
+  ${({ style }) => style };
+
 `;
 
 export default LaunchButton;
