@@ -64,26 +64,35 @@ interface ContainerProps {
 
 const Receiver = ({ buttonText, launchButtonStyle, peerAddress, receiverContainerStyle }: ContainerProps) => {
   const [showBox, setShowBox] = useState<boolean>(false);
+  const [hasLaunched, setHasLaunched] = useState<boolean>(false);
+
 
   const toggle = () => {
     setShowBox(!showBox);
+    if (!hasLaunched) setHasLaunched(true);
   };
 
   const chatBoxContainerStyle:CSS.Properties = {
-    maxHeight: showBox ? '480px' : '0px', 
+    maxHeight: showBox ? '480px' : (hasLaunched ? '62px' : '0px'),
     height: '480px', 
     position: 'fixed', 
     bottom: '0px', 
     right: '150px',
-    transition: 'max-height 0.25s ease-in'
+    transition: 'max-height 0.25s ease-in',
+    overflow: 'hidden',
+    borderRadius: showBox ? '7px' : '7px 7px 0 0'
   }
+
+  var className = 'relay-receiver-chat-container';
+  className += showBox ? ' visible' : 'collapsed';
+  className += hasLaunched ? ' launched' : '';
 
   return (
     <WagmiProvider client={wagmi}>
       <XmtpContextProvider>
         <LaunchButton onClick={toggle} text={buttonText} style={launchButtonStyle}></LaunchButton>
-        <div style={chatBoxContainerStyle}>
-          <ChatBox style={receiverContainerStyle} closeReceiver={toggle} peerAddress={peerAddress} visible={showBox}></ChatBox>
+        <div style={chatBoxContainerStyle} className=''>
+          <ChatBox style={receiverContainerStyle} closeReceiver={toggle} peerAddress={peerAddress} hasLaunched={hasLaunched} visible={showBox}></ChatBox>
         </div>
      </XmtpContextProvider>
     </WagmiProvider>

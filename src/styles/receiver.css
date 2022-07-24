@@ -1,0 +1,45 @@
+.receiver-header .visible {
+  display: visible;
+}
+
+.receiver-header .collapsed {
+  display: none;
+}
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter.ttf')
+        format('truetype supports variations'),
+      url('/assets/fonts/Inter.ttf')
+        format('truetype-variations');
+    font-weight: 100 1000;
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/assets/fonts/Montserrat.ttf')
+        format('truetype supports variations'),
+      url('/assets/fonts/Montserrat.ttf')
+        format('truetype-variations');
+    font-weight: 100 1000;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/Roboto.ttf')
+        format('truetype supports variations'),
+      url('/assets/fonts/Roboto.ttf')
+        format('truetype-variations');
+    font-weight: 100 1000;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Montserrat-Italic';
+    src: url('/assets/fonts/Montserrat-Italic-VariableFont_wght.ttf')
+        format('truetype supports variations'),
+      url('/assets/fonts/Montserrat-Italic-VariableFont_wght.ttf')
+        format('truetype-variations');
+    font-weight: 100 1000;
+  }

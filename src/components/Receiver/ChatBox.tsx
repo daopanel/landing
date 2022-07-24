@@ -18,6 +18,7 @@ import React from 'react';
 
 interface ChatButtonProps {
   visible: boolean;
+  hasLaunched: boolean;
   as?: string | React.ComponentType<any>;
   style?: Interpolation<React.CSSProperties>;
   peerAddress?: string;
@@ -25,7 +26,7 @@ interface ChatButtonProps {
   closeReceiver: () => unknown;
 }
 
-const ChatBox = ({ style, visible, as, peerAddress, headerText, closeReceiver}: ChatButtonProps) => {
+const ChatBox = ({ hasLaunched, style, visible, as, peerAddress, headerText, closeReceiver}: ChatButtonProps) => {
   const isMetaMask = useIsMetaMask();
   const [xmtpReady, setXmptReady] = useState<boolean>(false);
   const [userDidConnect, setUserDidConnect] = useState<boolean>(false);
@@ -83,12 +84,12 @@ const ChatBox = ({ style, visible, as, peerAddress, headerText, closeReceiver}: 
       <RelayRelativeContainer>
         {(isConnected && userDidConnect) ? (
           <>
-            <Header text={peerAddress} showLinks={true} closeReceiver={closeReceiver} />
+            <Header visible={visible} text={peerAddress} showLinks={true} closeReceiver={closeReceiver} />
             <Messages onXmptReady={handleOnXmtpReady} providedPeerAddress={peerAddress} />
           </>
         ) : (
           <>
-            <Header closeReceiver={closeReceiver} text={headerText} showLinks={false} />
+            <Header visible={visible} closeReceiver={closeReceiver} text={headerText} showLinks={false} />
             <ConnectorList>
               <ConnectorPrompt>Connect your wallet to start a converation!</ConnectorPrompt>
               {isMetaMask && (
@@ -135,7 +136,6 @@ const ChatContainer = styled.div<ChatButtonProps>`
   letter-spacing: .1em;
   height: 100%;
   width: 375px;
-  border-radius: 7px;
   ${({ style }) => style };
 `;
 

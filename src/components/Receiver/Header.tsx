@@ -7,22 +7,27 @@ import React from 'react'
 interface HeaderProps {
   text?: string;
   showLinks?: boolean;
+  visible: boolean;
   closeReceiver: () => unknown;
 }
 
 export default function RelayHeader({
+  visible,
   text = 'Welcome to DaoPanel Receiver',
   showLinks = false,
   closeReceiver
 }: HeaderProps) {
+
+  let closeClass = visible ? 'visible' : 'collapsed';
+
   return (
-    <Header>
+    <Header className='receiver-header'>
        <TextContainer>
           {text}
        </TextContainer>
       
-
-      <CloseContainer onClick={closeReceiver}>
+      { visible && 
+      <CloseContainer className={closeClass} onClick={closeReceiver}>
         <Image
           src={CloseReceiverLine.src}
           width={22}
@@ -31,6 +36,8 @@ export default function RelayHeader({
         />
       </CloseContainer>
 
+      }
+      
     </Header>
   );
 }
@@ -43,6 +50,10 @@ const Header = styled.div`
   padding: 10px 24px;
   font-family: Inter;
   height: 62px;
+  position: absolute;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 `;
 
 const TextContainer = styled.div`

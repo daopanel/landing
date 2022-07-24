@@ -14,7 +14,6 @@ import {
   Status as SendMessageStatus,
 } from '../../xmtp-react/conversations';
 import StatusCard from './StatusCard';
-import LoadingEnsName from './LoadingEnsName';
 import { useEnsAddress } from 'wagmi';
 
 interface MessagesProps {
@@ -173,6 +172,7 @@ const Page = styled.div`
   display: flex;
   flex-direction: column;
   height: 363px;
+  padding-top: 62px;
 `;
 
 const List = styled.ul`
