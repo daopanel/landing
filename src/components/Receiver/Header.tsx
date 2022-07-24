@@ -18,7 +18,7 @@ export default function RelayHeader({
   closeReceiver
 }: HeaderProps) {
 
-  let closeClass = visible ? 'visible' : 'collapsed';
+  const closeClass = visible ? 'visible' : 'collapsed';
 
   return (
     <Header className='receiver-header'>

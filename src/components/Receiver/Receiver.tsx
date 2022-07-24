@@ -83,15 +83,11 @@ const Receiver = ({ buttonText, launchButtonStyle, peerAddress, receiverContaine
     borderRadius: showBox ? '7px' : '7px 7px 0 0'
   }
 
-  var className = 'relay-receiver-chat-container';
-  className += showBox ? ' visible' : 'collapsed';
-  className += hasLaunched ? ' launched' : '';
-
   return (
     <WagmiProvider client={wagmi}>
       <XmtpContextProvider>
         <LaunchButton onClick={toggle} text={buttonText} style={launchButtonStyle}></LaunchButton>
-        <div style={chatBoxContainerStyle} className=''>
+        <div style={chatBoxContainerStyle}>
           <ChatBox style={receiverContainerStyle} closeReceiver={toggle} peerAddress={peerAddress} hasLaunched={hasLaunched} visible={showBox}></ChatBox>
         </div>
      </XmtpContextProvider>
